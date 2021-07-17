@@ -82,3 +82,10 @@ install(
     DIRECTORY ${PROJECT_SOURCE_DIR}/src/agl
     DESTINATION include
 )
+
+add_executable(test-sandbox test/sandbox.cpp)
+
+target_link_libraries(test-sandbox
+PRIVATE
+    AbstractGL
+)
