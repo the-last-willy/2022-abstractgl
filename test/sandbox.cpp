@@ -1,3 +1,5 @@
 #include "agl/all.hpp"
 
-int main() {}
+int main() {
+    auto m = agl::mat2(1, 2, 3, 4);
+}

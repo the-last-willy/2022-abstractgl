@@ -12,7 +12,7 @@ struct Qualifier {
         : value(value)
     {}
 
-    explicit operator const auto() const noexcept {
+    constexpr operator const auto() const noexcept {
         return value;
     }
 
