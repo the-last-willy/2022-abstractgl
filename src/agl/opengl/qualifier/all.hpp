@@ -16,6 +16,7 @@
 #include "shader_type.hpp"
 #include "size.hpp"
 #include "stride.hpp"
+#include "texture_target.hpp"
 #include "texture.hpp"
 #include "uniform_index.hpp"
 #include "vertex_array.hpp"
