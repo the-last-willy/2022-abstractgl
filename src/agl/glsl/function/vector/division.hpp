@@ -1,9 +1,8 @@
 #pragma once
 
-#include "vec.hpp"
+#include "agl/glsl/vec/vec.hpp"
 
 namespace agl {
-
 
 template<typename T, std::size_t N> constexpr
 Vec<T, N> operator/(Vec<T, N> lv, float rf) {

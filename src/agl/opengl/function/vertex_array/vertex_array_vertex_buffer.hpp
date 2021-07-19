@@ -17,11 +17,11 @@ void vertex_array_vertex_buffer(
     Stride<GLsizei> s)
 {
     glVertexArrayVertexBuffer(
-        static_cast<GLuint>(va),
-        static_cast<GLuint>(bi),
-        static_cast<GLuint>(b),
-        static_cast<GLintptr>(o),
-        static_cast<GLsizei>(s));
+        va,
+        bi,
+        b,
+        o,
+        s);
 }
 
 inline

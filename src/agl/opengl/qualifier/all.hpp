@@ -1,5 +1,6 @@
 #pragma once
 
+#include "parameter/all.hpp"
 #include "attribute_index.hpp"
 #include "binding_index.hpp"
 #include "buffer.hpp"
@@ -10,12 +11,15 @@
 #include "framebuffer_buffer.hpp"
 #include "framebuffer.hpp"
 #include "instance_count.hpp"
+#include "level.hpp"
+#include "normalized.hpp"
 #include "offset.hpp"
 #include "program.hpp"
 #include "shader.hpp"
 #include "shader_type.hpp"
 #include "size.hpp"
 #include "stride.hpp"
+#include "texture_attachment.hpp"
 #include "texture_target.hpp"
 #include "texture.hpp"
 #include "uniform_index.hpp"

@@ -1,8 +1,12 @@
 #pragma once
 
+#include "agl/glsl/mat/mat.hpp"
+#include "agl/glsl/vec/vec.hpp"
 #include "agl/opengl/qualifier/attribute_index.hpp"
+#include "agl/opengl/qualifier/normalized.hpp"
 #include "agl/opengl/qualifier/offset.hpp"
 #include "agl/opengl/qualifier/size.hpp"
+#include "agl/opengl/qualifier/type.hpp"
 #include "agl/opengl/qualifier/vertex_array.hpp"
 
 namespace agl {
@@ -10,32 +14,32 @@ namespace agl {
 inline
 void vertex_array_attrib_format(
     VertexArray va,
-    AttributeIndex<GLuint> ai,
-    Size<GLint> size,
+    AttributeIndex<GLint> ai,
+    Size<GLint> s,
     GLenum type,
-    GLboolean normalized,
+    Normalized n,
     Offset<GLuint> o)
 {
     glVertexArrayAttribFormat(
-        static_cast<GLuint>(va),
-        static_cast<GLuint>(ai),
-        static_cast<GLint>(size),
+        va,
+        static_cast<GLint>(ai),
+        s,
         type,
-        normalized,
-        static_cast<GLuint>(o));
+        n,
+        o);
 }
 
 inline
 void attribute_format(
     VertexArray va,
-    AttributeIndex<GLuint> ai,
-    Size<GLint> size,
+    AttributeIndex<GLint> ai,
+    Size<GLint> s,
     GLenum type,
-    GLboolean normalized,
-    Offset<GLuint> o)
+    Normalized n = Normalized(GL_FALSE),
+    Offset<GLuint> o = Offset<GLuint>(0))
 {
     vertex_array_attrib_format(
-        va, ai, size, type, normalized, o);
+        va, ai, s, type, n, o);
 }
 
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "vec.hpp"
+#include "agl/glsl/vec/vec.hpp"
 
 namespace agl {
 

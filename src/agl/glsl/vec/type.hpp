@@ -7,13 +7,8 @@
 namespace agl {
 
 template<typename T, std::size_t N> constexpr
-auto size(Type<Vec<T, N>>) {
-    return N;
-}
-
-template<typename T, std::size_t N> constexpr
-auto size(const Vec<T, N>&) {
-    return N;
+GLenum type(Type<Vec<T, N>>) {
+    return type(Type<T>());
 }
 
 }
