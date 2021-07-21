@@ -2,13 +2,13 @@
 
 #include "vec.hpp"
 
-#include "agl/opengl/qualifier/type.hpp"
+#include "agl/opengl/type/type.hpp"
 
 namespace agl {
 
 template<typename T, std::size_t N> constexpr
 GLenum type(Type<Vec<T, N>>) {
-    return type(Type<T>());
+    return Type<Vec<T, N>>::enum_;
 }
 
 }

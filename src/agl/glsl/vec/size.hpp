@@ -2,7 +2,7 @@
 
 #include "vec.hpp"
 
-#include "agl/opengl/qualifier/type.hpp"
+#include "agl/opengl/type/type.hpp"
 
 namespace agl {
 
