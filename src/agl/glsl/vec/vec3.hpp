@@ -2,6 +2,8 @@
 
 #include "vec.hpp"
 
+#include "agl/tag/null.hpp"
+
 namespace agl {
 
 using Vec3 = Vec<GLfloat, 3>;
@@ -9,6 +11,11 @@ using Vec3 = Vec<GLfloat, 3>;
 constexpr
 auto vec3(float e0, float e1, float e2) noexcept {
     return Vec<float, 3>{e0, e1, e2};
+}
+
+constexpr
+auto vec3(NullTag) noexcept {
+    return vec3(0, 0, 0);
 }
 
 constexpr

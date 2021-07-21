@@ -12,7 +12,8 @@ void draw_arrays_instanced(
     DrawMode dm,
     Offset<GLint> o,
     Count<GLsizei> c,
-    InstanceCount<GLsizei> ic) {
+    InstanceCount<GLsizei> ic)
+{
     glDrawArraysInstanced(
         static_cast<GLenum>(dm),
         static_cast<GLint>(o),

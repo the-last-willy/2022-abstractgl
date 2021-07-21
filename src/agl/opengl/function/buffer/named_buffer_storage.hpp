@@ -26,8 +26,13 @@ void storage(Buffer b, std::span<const std::byte> s, GLbitfield flags) {
 }
 
 template<typename Type>
-void storage(Buffer b, std::span<const Type> s, GLbitfield flags) {
-    storage(b, s.as_bytes(), flags);
+void storage(Buffer b, std::span<const Type> s, GLbitfield flags = 0) {
+    storage(b, std::as_bytes(s), flags);
+}
+
+template<typename Type>
+void storage(Buffer b, std::span<Type> s, GLbitfield flags = 0) {
+    storage(b, std::as_bytes(s), flags);
 }
 
 }

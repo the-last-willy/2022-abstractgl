@@ -21,7 +21,7 @@ auto operator*(const Mat<Type, I, J>& lm , const Vec<Type, I>& rv) {
     auto r = Vec<Type, J>();
     for(std::size_t j = 0; j < J; ++j)
     for(std::size_t i = 0; i < I; ++i) {
-        r[j] += lm[i, j] * rv[i];
+        r[j] += lm[i][j] * rv[i];
     }
     return r;
 }

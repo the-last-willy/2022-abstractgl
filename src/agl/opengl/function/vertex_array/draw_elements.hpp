@@ -14,9 +14,9 @@ void draw_elements(
     DrawMode dm,
     Count<GLsizei> c,
     DrawType dt,
-    Offset<GLintptr> o)
+    Offset<GLintptr> o = Offset<GLintptr>(0))
 {
-    // TODO: Think some more about it.
+    // TODO: Think some more about Offset<GLintptr>.
     glDrawElements(
         static_cast<GLenum>(dm),
         static_cast<GLsizei>(c),

@@ -6,9 +6,6 @@
 
 namespace agl {
 
-// Forward declaration.
-void glCreateBuffers(GLsizei n, GLuint *buffers);
-
 inline
 void create_buffers(GLsizei n, Buffer* buffers) {
     glCreateBuffers(

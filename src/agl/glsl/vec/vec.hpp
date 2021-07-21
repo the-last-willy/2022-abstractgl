@@ -20,6 +20,11 @@ struct Vec {
     auto& operator[](std::size_t i) {
         return elements[i];
     }
+
+    constexpr
+    auto xyz() const {
+        return Vec<T, 3>{elements[0], elements[1], elements[2]};
+    }
 };
 
 }

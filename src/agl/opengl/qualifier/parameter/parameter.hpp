@@ -16,7 +16,7 @@ struct Parameter {
         return value;
     }
 
-    Type value;
+    Value value;
 };
 
 }

@@ -19,7 +19,7 @@ void program_uniform_matrix(
     glProgramUniformMatrix2fv(
         p,
         ui,
-        static_cast<GLsizei>(element_count(m)),
+        1,
         GL_FALSE,
         element_data(m));
 }
@@ -30,10 +30,10 @@ void program_uniform_matrix(
     UniformIndex<GLint> ui,
     const Mat3& m)
 {
-    glProgramUniformMatrix2fv(
+    glProgramUniformMatrix3fv(
         p,
         ui,
-        static_cast<GLsizei>(element_count(m)),
+        1,
         GL_FALSE,
         element_data(m));
 }
@@ -44,10 +44,10 @@ void program_uniform_matrix(
     UniformIndex<GLint> ui,
     const Mat4& m)
 {
-    glProgramUniformMatrix2fv(
+    glProgramUniformMatrix4fv(
         p,
         ui,
-        static_cast<GLsizei>(element_count(m)),
+        1,
         GL_FALSE,
         element_data(m));
 }
