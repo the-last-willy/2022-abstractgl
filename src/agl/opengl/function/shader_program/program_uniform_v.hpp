@@ -19,7 +19,7 @@ void program_uniform(
     glProgramUniform2fv(
         p,
         ui,
-        static_cast<GLsizei>(size(v)),
+        1,
         data(v));
 }
 
@@ -32,7 +32,7 @@ void program_uniform(
     glProgramUniform3fv(
         p,
         ui,
-        static_cast<GLsizei>(size(v)),
+        1,
         data(v));
 }
 
@@ -45,7 +45,7 @@ void program_uniform(
     glProgramUniform4fv(
         p,
         ui,
-        static_cast<GLsizei>(size(v)),
+        1,
         data(v));
 }
 

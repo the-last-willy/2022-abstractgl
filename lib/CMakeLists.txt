@@ -2,6 +2,7 @@ add_library(glad)
 
 target_sources(glad
 PRIVATE
+    glad/include/glad/glad.h
     glad/src/glad.c
 )
 

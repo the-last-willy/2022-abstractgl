@@ -2,6 +2,7 @@
 
 #include "mat.hpp"
 
+#include "agl/glsl/vec/vec4.hpp"
 #include "agl/tag/identity.hpp"
 
 namespace agl {
@@ -30,6 +31,21 @@ auto mat4(IdentityTag)
         0, 1, 0, 0,
         0, 0, 1, 0,
         0, 0, 0, 1};
+}
+
+constexpr
+Mat4 mat4(
+    Vec4 v0,
+    Vec4 v1,
+    Vec4 v2,
+    Vec4 v3)
+{
+    return Mat4{v0, v1, v2, v3};
+    // return Mat4{
+    //     v0[0], v0[1], v0[2], v0[3],
+    //     v1[0], v1[1], v1[2], v1[3],
+    //     v2[0], v2[1], v2[2], v2[3],
+    //     v3[0], v3[1], v3[2], v3[3]};
 }
 
 }

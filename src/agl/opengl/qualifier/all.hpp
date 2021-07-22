@@ -1,5 +1,7 @@
 #pragma once
 
+#include "enum/all.hpp"
+#include "name/all.hpp"
 #include "parameter/all.hpp"
 #include "attribute_index.hpp"
 #include "binding_index.hpp"

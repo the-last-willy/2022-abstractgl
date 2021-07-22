@@ -1,17 +1,15 @@
 #pragma once
 
-#include "agl/glsl/vec/vec.hpp"
+#include "agl/glsl/vec/vec3.hpp"
 
 namespace agl {
 
 constexpr
-float cross(Vec<float, 3> lv, Vec<float, 3> rv) {
-    constexpr auto N = 3;
-    auto c = float(0);
-    for(std::size_t i = 0; i < N; ++i) {
-        c += lv[i] * rv[(i + 1) % N] - lv[(i + 1) % N] * rv[i];
-    }
-    return c;
+Vec3 cross(Vec3 lv, Vec3 rv) {
+    return agl::vec3(
+        lv[1] * rv[2] - lv[2] * rv[1],
+        lv[2] * rv[0] - lv[0] * rv[2],
+        lv[0] * rv[1] - lv[1] * rv[0]);
 }
 
 }
