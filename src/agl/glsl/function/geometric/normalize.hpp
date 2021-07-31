@@ -7,7 +7,7 @@
 namespace agl {
 
 template<std::size_t N>
-Vec3 normalize(Vec<float, N> v) {
+Vec<float, N> normalize(Vec<float, N> v) {
     return v / length(v);
 }
 
