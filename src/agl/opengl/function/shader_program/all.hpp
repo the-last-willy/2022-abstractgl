@@ -7,6 +7,7 @@
 #include "delete_program.hpp"
 #include "delete_shader.hpp"
 #include "get_active_attrib.hpp"
+#include "get_active_uniform.hpp"
 #include "get_program.hpp"
 #include "get_uniform_location.hpp"
 #include "link_program.hpp"
