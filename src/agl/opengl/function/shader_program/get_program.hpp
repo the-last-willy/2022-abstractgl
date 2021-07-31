@@ -40,7 +40,25 @@ GLint active_attribute_max_length(
     Program p)
 {
     GLint i;
-    get(p, ProgramParameter::active_attribue_max_length, &i);
+    get(p, ProgramParameter::active_attribute_max_length, &i);
+    return i;
+}
+
+inline
+GLint active_uniforms(
+    Program p)
+{
+    GLint i;
+    get(p, ProgramParameter::active_uniforms, &i);
+    return i;
+}
+
+inline
+GLint active_uniform_max_length(
+    Program p)
+{
+    GLint i;
+    get(p, ProgramParameter::active_uniform_max_length, &i);
     return i;
 }
 
