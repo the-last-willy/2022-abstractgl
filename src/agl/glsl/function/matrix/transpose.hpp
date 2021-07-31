@@ -1,15 +1,15 @@
 #pragma once
 
-#include "matrix.hpp"
+#include "agl/glsl/mat/mat.hpp"
 
-namespace tlw {
+namespace agl {
 
-template<std::size_t CC, std::size_t RC, typename Type> constexpr
-auto transpose(const Matrix<CC, RC, Type>& m) {
-    auto t = Matrix<RC, CC, Type>();
+template<typename Type, std::size_t CC, std::size_t RC> constexpr
+auto transpose(const Mat<Type, CC, RC>& m) {
+    auto t = Mat<Type, RC, CC>();
     for(std::size_t c = 0; c < CC; ++c)
     for(std::size_t r = 0; r < RC; ++r) {
-        t(r, c) = m(c, r);
+        t[r][c] = m[c][r];
     }
     return t;
 }
