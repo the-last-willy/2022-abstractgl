@@ -14,6 +14,11 @@ auto vec3(float e0, float e1, float e2) noexcept {
 }
 
 constexpr
+auto vec3(float f) noexcept {
+    return vec3(f, f, f);
+}
+
+constexpr
 auto vec3(NullTag) noexcept {
     return vec3(0, 0, 0);
 }
