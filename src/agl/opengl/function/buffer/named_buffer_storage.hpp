@@ -35,4 +35,9 @@ void storage(Buffer b, std::span<Type, Extent> s, GLbitfield flags = 0) {
     storage(b, std::as_bytes(s), flags);
 }
 
+inline
+void storage(Buffer b, std::size_t s, GLbitfield flags = 0) {
+    named_buffer_storage(b, s, NULL, flags);
+}
+
 }
