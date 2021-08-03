@@ -17,7 +17,7 @@ void create_textures(TextureTarget tt, GLsizei n, Texture* ts) {
 
 inline
 void textures(TextureTarget tt, std::span<Texture> s) {
-    textures(
+    create_textures(
         tt,
         static_cast<GLsizei>(size(s)),
         data(s));

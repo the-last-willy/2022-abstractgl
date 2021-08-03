@@ -15,7 +15,7 @@ void texture_storage2d(
     Width w,
     Height h)
 {
-    glTexStorage2D(
+    glTextureStorage2D(
         t,
         levels,
         internalformat,
