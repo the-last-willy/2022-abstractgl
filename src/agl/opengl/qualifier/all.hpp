@@ -10,7 +10,6 @@
 #include "count.hpp"
 #include "draw_mode.hpp"
 #include "draw_type.hpp"
-#include "framebuffer_buffer.hpp"
 #include "framebuffer.hpp"
 #include "instance_count.hpp"
 #include "level.hpp"

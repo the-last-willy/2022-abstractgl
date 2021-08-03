@@ -5,7 +5,10 @@
 namespace agl {
 
 enum class FramebufferBuffer : GLenum {
-    // TODO: Fill it.
+    // Default framebuffer.
+    // ...
+    // Framebuffer object.
+    color0 = GL_COLOR_ATTACHMENT0,
 };
 
 }

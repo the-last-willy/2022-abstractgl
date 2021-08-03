@@ -1,6 +1,6 @@
 #pragma once
 
-#include "agl/opengl/qualifier/framebuffer_buffer.hpp"
+#include "agl/opengl/qualifier/enum/framebuffer_buffer.hpp"
 #include "agl/opengl/qualifier/framebuffer.hpp"
 
 #include <span>
