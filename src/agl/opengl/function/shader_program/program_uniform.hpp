@@ -5,5 +5,18 @@
 
 namespace agl {
 
+inline
+void uniform( 
+    Program p,
+  	UniformIndex<GLint> ui,
+  	int value)
+{
+    glProgramUniform1i(
+        p,
+        ui,
+        value);
+}
+    
+
 }
 
