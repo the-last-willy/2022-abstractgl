@@ -5,3 +5,4 @@
 #include "delete_textures.hpp"
 #include "texture_parameter.hpp"
 #include "texture_storage2d.hpp"
+#include "texture_sub_image2d.hpp"

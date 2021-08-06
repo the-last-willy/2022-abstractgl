@@ -22,6 +22,7 @@
 #include "stride.hpp"
 #include "texture_attachment.hpp"
 #include "texture_target.hpp"
+#include "texture_unit.hpp"
 #include "texture.hpp"
 #include "uniform_index.hpp"
 #include "vertex_array.hpp"

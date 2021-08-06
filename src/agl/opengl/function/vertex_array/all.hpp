@@ -9,6 +9,7 @@
 #include "draw_elements.hpp"
 #include "draw_elements_instanced.hpp"
 #include "enable_vertex_array_attrib.hpp"
+#include "get.hpp"
 #include "vertex_array_attrib_binding.hpp"
 #include "vertex_array_attrib_divisor.hpp"
 #include "vertex_array_attrib_format.hpp"
