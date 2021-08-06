@@ -8,7 +8,7 @@
 namespace agl {
 
 inline
-void texture_storage2d(
+void storage(
     Texture t,
     GLsizei levels,
     GLenum internalformat,
@@ -26,12 +26,16 @@ void texture_storage2d(
 inline
 void storage(
     Texture t,
-    GLsizei levels,
     GLenum internalformat,
     Width w,
     Height h)
 {
-    texture_storage2d(t, levels, internalformat, w, h);
+    storage(
+        t,
+        1,
+        internalformat,
+        w,
+        h);
 }
 
 }
