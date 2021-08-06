@@ -1,7 +1,7 @@
 #pragma once
 
-#include "agl/opengl/qualifier/program.hpp"
-#include "agl/opengl/qualifier/shader.hpp"
+#include "agl/opengl/names.hpp"
+#include "agl/opengl/names.hpp"
 
 namespace agl {
 

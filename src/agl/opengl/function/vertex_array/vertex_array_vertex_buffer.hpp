@@ -1,10 +1,10 @@
 #pragma once
 
 #include "agl/opengl/qualifier/binding_index.hpp"
-#include "agl/opengl/qualifier/buffer.hpp"
+#include "agl/opengl/names.hpp"
 #include "agl/opengl/qualifier/offset.hpp"
 #include "agl/opengl/qualifier/stride.hpp"
-#include "agl/opengl/qualifier/vertex_array.hpp"
+#include "agl/opengl/names.hpp"
 
 namespace agl {
 

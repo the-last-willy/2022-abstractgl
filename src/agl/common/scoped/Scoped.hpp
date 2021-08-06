@@ -2,9 +2,7 @@
 
 namespace agl {
 
-template<typename Deleter>
-struct Scoped {
-    
-};
+template<typename Type>
+struct Scoped;
 
 }

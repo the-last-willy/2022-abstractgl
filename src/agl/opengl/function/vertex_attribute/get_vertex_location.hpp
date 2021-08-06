@@ -2,7 +2,7 @@
 
 #include "agl/opengl/qualifier/attribute_index.hpp"
 #include "agl/opengl/qualifier/cstring.hpp"
-#include "agl/opengl/qualifier/program.hpp"
+#include "agl/opengl/names.hpp"
 
 namespace agl {
 

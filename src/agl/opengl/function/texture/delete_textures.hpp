@@ -1,7 +1,7 @@
 #pragma once
 
 #include "agl/opengl/qualifier/texture_target.hpp"
-#include "agl/opengl/qualifier/texture.hpp"
+#include "agl/opengl/names.hpp"
 
 #include <span>
 

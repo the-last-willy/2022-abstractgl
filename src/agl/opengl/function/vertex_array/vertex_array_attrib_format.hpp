@@ -7,7 +7,7 @@
 #include "agl/opengl/qualifier/offset.hpp"
 #include "agl/opengl/qualifier/size.hpp"
 #include "agl/opengl/type/type.hpp"
-#include "agl/opengl/qualifier/vertex_array.hpp"
+#include "agl/opengl/names.hpp"
 
 namespace agl {
 

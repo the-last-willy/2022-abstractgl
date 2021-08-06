@@ -5,7 +5,7 @@
 #include "agl/glsl/mat/mat2.hpp"
 #include "agl/glsl/mat/mat3.hpp"
 #include "agl/glsl/mat/mat4.hpp"
-#include "agl/opengl/qualifier/program.hpp"
+#include "agl/opengl/names.hpp"
 #include "agl/opengl/qualifier/uniform_index.hpp"
 
 namespace agl {

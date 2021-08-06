@@ -1,7 +1,7 @@
 #pragma once
 
-#include "agl/opengl/qualifier/enum/program_parameter.hpp"
-#include "agl/opengl/qualifier/program.hpp"
+#include "agl/opengl/enum/program_parameter.hpp"
+#include "agl/opengl/names.hpp"
 
 namespace agl {
 

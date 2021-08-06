@@ -1,9 +1,9 @@
 #pragma once
 
-#include "agl/opengl/qualifier/Level.hpp"
-#include "agl/opengl/qualifier/texture.hpp"
-#include "agl/opengl/qualifier/parameter/height.hpp"
-#include "agl/opengl/qualifier/parameter/width.hpp"
+#include "agl/opengl/qualifier/level.hpp"
+#include "agl/opengl/names.hpp"
+#include "agl/opengl/qualifier/height.hpp"
+#include "agl/opengl/qualifier/width.hpp"
 
 namespace agl {
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "agl/opengl/qualifier/enum/texture_parameter.hpp"
-#include "agl/opengl/qualifier/texture.hpp"
+#include "agl/opengl/enum/texture_parameter.hpp"
+#include "agl/opengl/names.hpp"
 
 namespace agl {
 

@@ -1,29 +1,22 @@
 #pragma once
 
-#include "agl/opengl/qualifier/buffer.hpp"
+#include "agl/opengl/names.hpp"
 
 #include <span>
 
 namespace agl {
 
 inline
-void create_buffers(GLsizei n, Buffer* buffers) {
-    glCreateBuffers(
-        n,
-        reinterpret_cast<GLuint*>(buffers));
-}
-
-inline
 void create(std::span<Buffer> s) {
-    create_buffers(
+    glCreateBuffers(
         static_cast<GLsizei>(size(s)),
-        data(s));
+        reinterpret_cast<GLuint*>(data(s)));
 }
 
 inline
-Buffer buffer() {
+Buffer create(BufferTag) {
     auto b = Buffer();
-    create({&b, 1});
+    glCreateBuffers(1, &b.id);
     return b;
 }
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "agl/opengl/qualifier/enum/framebuffer_target.hpp"
+#include "agl/opengl/enum/framebuffer_target.hpp"
 #include "agl/opengl/qualifier/framebuffer.hpp"
 
 namespace agl {

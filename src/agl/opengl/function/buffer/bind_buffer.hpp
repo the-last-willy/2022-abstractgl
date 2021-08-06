@@ -1,6 +1,6 @@
 #pragma once
 
-#include "agl/opengl/qualifier/buffer.hpp"
+#include "agl/opengl/names.hpp"
 #include "agl/opengl/qualifier/buffer_target.hpp"
 
 namespace agl {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "agl/opengl/qualifier/shader.hpp"
+#include "agl/opengl/names.hpp"
 
 #include <string_view> 
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "agl/opengl/qualifier/buffer.hpp"
-#include "agl/opengl/qualifier/vertex_array.hpp"
+#include "agl/opengl/names.hpp"
+#include "agl/opengl/names.hpp"
 
 namespace agl {
 

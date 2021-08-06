@@ -3,7 +3,7 @@
 #include "get_program.hpp"
 
 #include "agl/opengl/qualifier/attribute_index.hpp"
-#include "agl/opengl/qualifier/program.hpp"
+#include "agl/opengl/names.hpp"
 
 #include <string>
 
