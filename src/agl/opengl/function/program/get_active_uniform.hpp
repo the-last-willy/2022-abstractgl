@@ -1,6 +1,6 @@
 #pragma once
 
-#include "agl/opengl/function/shader_program/get_program.hpp"
+#include "agl/opengl/function/program/get_program.hpp"
 #include "agl/opengl/names.hpp"
 #include "agl/opengl/qualifier/uniform_index.hpp"
 
@@ -11,7 +11,7 @@ namespace agl {
 inline
 void get_active_uniform(
     Program p,
-  	UniformIndex<GLuint> ui,
+  	UniformIndex ui,
   	GLsizei bufSize,
   	GLsizei *length,
   	GLint *size,
@@ -37,7 +37,7 @@ struct UniformInformation {
 inline 
 UniformInformation active_uniform(
     Program p,
-  	UniformIndex<GLuint> ui)
+  	UniformIndex ui)
 {
     auto i = UniformInformation();
     i.name.resize(active_uniform_max_length(p));

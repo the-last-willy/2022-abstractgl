@@ -4,6 +4,6 @@
 
 namespace agl {
 
-using cstring = const GLchar*;
+using czstring = const GLchar*;
 
 }

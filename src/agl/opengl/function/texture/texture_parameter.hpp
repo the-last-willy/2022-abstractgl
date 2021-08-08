@@ -6,7 +6,7 @@
 namespace agl {
 
 inline
-void texture_parameter(Texture t, TextureParameter tp, GLfloat param) {
+void parameter(Texture t, TextureParameter tp, GLfloat param) {
     glTextureParameterf(
         t,
         static_cast<GLenum>(tp),
@@ -14,16 +14,21 @@ void texture_parameter(Texture t, TextureParameter tp, GLfloat param) {
 }
 
 inline
-void texture_parameter(Texture t, TextureParameter tp, GLint param) {
+void parameter(Texture t, TextureParameter tp, GLint param) {
     glTextureParameteri(
         t,
         static_cast<GLenum>(tp),
         param);
 }
 
-template<typename Parameter>
-void parameter(Texture t, TextureParameter tp, Parameter p) {
-    texture_parameter(t, tp, p);
+inline
+void mag_filter(Texture t, GLint param) {
+    parameter(t, TextureParameter::mag_filter, param);
+}
+
+inline
+void min_filter(Texture t, GLint param) {
+    parameter(t, TextureParameter::min_filter, param);
 }
 
 }

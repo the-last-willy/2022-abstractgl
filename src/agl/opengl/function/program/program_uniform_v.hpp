@@ -11,9 +11,9 @@
 namespace agl {
 
 inline
-void program_uniform(
+void uniform(
     Program p,
-    UniformIndex<GLint> ui,
+    UniformIndex ui,
     Vec2 v)
 {
     glProgramUniform2fv(
@@ -24,9 +24,9 @@ void program_uniform(
 }
 
 inline
-void program_uniform(
+void uniform(
     Program p,
-    UniformIndex<GLint> ui,
+    UniformIndex ui,
     Vec3 v)
 {
     glProgramUniform3fv(
@@ -37,9 +37,9 @@ void program_uniform(
 }
 
 inline
-void program_uniform(
+void uniform(
     Program p,
-    UniformIndex<GLint> ui,
+    UniformIndex ui,
     Vec4 v)
 {
     glProgramUniform4fv(
@@ -47,15 +47,6 @@ void program_uniform(
         ui,
         1,
         data(v));
-}
-
-template<typename T, std::size_t N>
-void uniform(
-    Program p,
-    UniformIndex<GLint> ui,
-    Vec<T, N> v)
-{
-    program_uniform(p, ui, v);
 }
 
 }

@@ -11,9 +11,9 @@
 namespace agl {
 
 inline
-void program_uniform_matrix(
+void uniform(
     Program p,
-    UniformIndex<GLint> ui,
+    UniformIndex ui,
     Mat2 m)
 {
     glProgramUniformMatrix2fv(
@@ -25,9 +25,9 @@ void program_uniform_matrix(
 }
 
 inline
-void program_uniform_matrix(
+void uniform(
     Program p,
-    UniformIndex<GLint> ui,
+    UniformIndex ui,
     const Mat3& m)
 {
     glProgramUniformMatrix3fv(
@@ -39,9 +39,9 @@ void program_uniform_matrix(
 }
 
 inline
-void program_uniform_matrix(
+void uniform(
     Program p,
-    UniformIndex<GLint> ui,
+    UniformIndex ui,
     const Mat4& m)
 {
     glProgramUniformMatrix4fv(
@@ -50,15 +50,6 @@ void program_uniform_matrix(
         1,
         GL_FALSE,
         element_data(m));
-}
-
-template<typename T, std::size_t CC, std::size_t RC>
-void uniform(
-    Program p,
-    UniformIndex<GLint> ui,
-    const Mat<T, CC, RC>& m)
-{
-    program_uniform_matrix(p, ui, m);
 }
 
 }

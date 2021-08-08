@@ -8,7 +8,7 @@ namespace agl {
 inline
 void uniform( 
     Program p,
-  	UniformIndex<GLint> ui,
+  	UniformIndex ui,
   	int value)
 {
     glProgramUniform1i(
