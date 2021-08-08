@@ -1,6 +1,6 @@
 #pragma once
 
-#include "agl/common/scoped/scoped.hpp"
+#include "agl/common/scoped.hpp"
 
 namespace agl {
 
@@ -14,6 +14,7 @@ struct Name {
     constexpr
     Name() noexcept {}
 
+    explicit
     Name(GLuint id) noexcept
         : id(id)
     {}
