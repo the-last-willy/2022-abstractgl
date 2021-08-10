@@ -16,7 +16,10 @@ void named_framebuffer_draw_buffers(Framebuffer f, GLsizei n, FramebufferBuffer*
 }
 
 inline
-void draw_buffers(Framebuffer f, std::span<FramebufferBuffer> s) {
+void draw_buffers(
+    Framebuffer f,
+    std::span<FramebufferBuffer> s)
+{
     named_framebuffer_draw_buffers(f,
         static_cast<GLsizei>(size(s)),
         data(s));
