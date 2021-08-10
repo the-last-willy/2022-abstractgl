@@ -1,8 +1,9 @@
 #pragma once
 
-#include "bind_texture_unit.hpp"
-#include "create_textures.hpp"
-#include "delete_textures.hpp"
-#include "texture_parameter.hpp"
-#include "texture_storage2d.hpp"
-#include "texture_sub_image2d.hpp"
+#include "bind.hpp"
+#include "create.hpp"
+#include "delete.hpp"
+#include "generate_mipmap.hpp"
+#include "image.hpp"
+#include "parameter.hpp"
+#include "storage.hpp"
