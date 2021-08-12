@@ -1,7 +1,7 @@
 #pragma once
 
 #include "agl/opengl/enum/framebuffer_target.hpp"
-#include "agl/opengl/qualifier/framebuffer.hpp"
+#include "agl/opengl/names.hpp"
 
 namespace agl {
 
@@ -13,7 +13,7 @@ void bind(FramebufferTarget ft, Framebuffer f) {
 }
 
 inline
-void bind_default(FramebufferTarget ft) {
+void unbind(FramebufferTarget ft) {
     glBindFramebuffer(
         static_cast<GLenum>(ft),
         0);
