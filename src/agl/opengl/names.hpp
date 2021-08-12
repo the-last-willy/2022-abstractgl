@@ -30,40 +30,40 @@ struct Name {
     }
 };
 
-template<NameTraits NT>
-struct Scoped<Name<NT>> : Name<NT> {
-    Scoped() noexcept {}
+// template<NameTraits NT>
+// struct Scoped<Name<NT>> : Name<NT> {
+//     Scoped() noexcept {}
 
-    Scoped(Name<NT>&& n) noexcept
-        : Name<NT>(n)
-    {}
+//     Scoped(Name<NT>&& n) noexcept
+//         : Name<NT>(n)
+//     {}
 
-    Scoped(const Scoped&) = delete;
+//     Scoped(const Scoped&) = delete;
 
-    Scoped(Scoped&& s) noexcept
-        : Name<NT>(s)
-    {
-        s.id = 0;
-    }
+//     Scoped(Scoped&& s) noexcept
+//         : Name<NT>(s)
+//     {
+//         s.id = 0;
+//     }
 
-    Scoped& operator=(const Scoped& s) = delete;
+//     Scoped& operator=(const Scoped& s) = delete;
 
-    Scoped& operator=(Scoped&& s) noexcept {
-        NT::delete_(*this);
-        Name<NT>::id = s.id;
-        s.id = 0;
-        return *this;
-    }
+//     Scoped& operator=(Scoped&& s) noexcept {
+//         NT::delete_(*this);
+//         Name<NT>::id = s.id;
+//         s.id = 0;
+//         return *this;
+//     }
 
-    ~Scoped() noexcept {
-        NT::delete_(*this);
-    }
-};
+//     ~Scoped() noexcept {
+//         NT::delete_(*this);
+//     }
+// };
 
-template<typename Traits>
-auto scoped(Name<Traits> n) {
-    return Scoped<Traits>(n);
-}
+// template<typename Traits>
+// auto scoped(Name<Traits> n) {
+//     return Scoped<Traits>(n);
+// }
 
 ////////////////////////////////////////////////////////////////////////////////
 // Buffer.
@@ -78,6 +78,20 @@ using Buffer = Name<BufferTraits>;
 
 struct BufferTag {};
 constexpr auto buffer_tag = BufferTag();
+
+////////////////////////////////////////////////////////////////////////////////
+// Framebuffer.
+
+struct FramebufferTraits {
+    static void delete_(GLuint id) {
+        glDeleteFramebuffers(1, &id);
+    }
+};
+
+using Framebuffer = Name<FramebufferTraits>;
+
+struct FramebufferTag {};
+constexpr auto framebuffer_tag = FramebufferTag();
 
 ////////////////////////////////////////////////////////////////////////////////
 // Program.
