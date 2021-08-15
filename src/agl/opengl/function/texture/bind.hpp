@@ -7,12 +7,16 @@ namespace agl {
 
 inline
 void bind(TextureUnit tu, Texture t) {
-    glBindTextureUnit(tu, t);
+    glBindTextureUnit(
+        tu,
+        t);
 }
 
 inline
 void unbind(TextureUnit tu) {
-    glBindTextureUnit(tu, 0);
+    glBindTextureUnit(
+        tu,
+        0);
 }
 
 }
