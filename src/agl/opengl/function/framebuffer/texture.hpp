@@ -11,6 +11,22 @@ void texture(
     Framebuffer f,
     TextureAttachment ta,
     Texture t,
+    Level l,
+    GLint layer)
+{
+    glNamedFramebufferTextureLayer(
+        f,
+        static_cast<GLenum>(ta),
+        t,
+        l,
+        layer);
+}
+
+inline
+void texture(
+    Framebuffer f,
+    TextureAttachment ta,
+    Texture t,
     Level l = Level(0))
 {
     glNamedFramebufferTexture(
