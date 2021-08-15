@@ -1,6 +1,6 @@
 #pragma once
 
-#include "agl/opengl/names.hpp"
+#include "agl/opengl/name/all.hpp"
 
 #include <span>
 
@@ -8,7 +8,7 @@ namespace agl {
 
 
 inline
-Framebuffer create(FramebufferTag) {
+Framebuffer create(tag::Framebuffer) {
     auto f = Framebuffer();
     glCreateFramebuffers(1, &f.id);
     return f;

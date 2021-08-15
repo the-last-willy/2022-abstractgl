@@ -2,7 +2,7 @@
 
 #include "agl/opengl/qualifier/level.hpp"
 #include "agl/opengl/qualifier/texture_attachment.hpp"
-#include "agl/opengl/names.hpp"
+#include "agl/opengl/name/all.hpp"
 
 namespace agl {
 

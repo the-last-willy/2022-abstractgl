@@ -7,7 +7,7 @@
 #include "agl/opengl/qualifier/offset.hpp"
 #include "agl/opengl/qualifier/size.hpp"
 #include "agl/opengl/type/type.hpp"
-#include "agl/opengl/names.hpp"
+#include "agl/opengl/name/all.hpp"
 
 namespace agl {
 

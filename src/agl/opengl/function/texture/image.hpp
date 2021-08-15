@@ -1,7 +1,7 @@
 #pragma once
 
 #include "agl/opengl/qualifier/Level.hpp"
-#include "agl/opengl/names.hpp"
+#include "agl/opengl/name/all.hpp"
 #include "agl/opengl/qualifier/height.hpp"
 #include "agl/opengl/qualifier/width.hpp"
 

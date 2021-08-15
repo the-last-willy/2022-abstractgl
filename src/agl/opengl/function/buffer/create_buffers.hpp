@@ -1,6 +1,7 @@
 #pragma once
 
-#include "agl/opengl/names.hpp"
+#include "agl/opengl/name/all.hpp"
+#include "agl/opengl/tag/names.hpp"
 
 #include <span>
 
@@ -14,7 +15,7 @@ void create(std::span<Buffer> s) {
 }
 
 inline
-Buffer create(BufferTag) {
+Buffer create(tag::Buffer) {
     auto b = Buffer();
     glCreateBuffers(1, &b.id);
     return b;

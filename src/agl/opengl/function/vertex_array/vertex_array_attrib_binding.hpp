@@ -2,7 +2,7 @@
 
 #include "agl/opengl/qualifier/attribute_index.hpp"
 #include "agl/opengl/qualifier/binding_index.hpp"
-#include "agl/opengl/names.hpp"
+#include "agl/opengl/name/all.hpp"
 
 namespace agl {
 

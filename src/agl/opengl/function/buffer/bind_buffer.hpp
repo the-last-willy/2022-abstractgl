@@ -1,11 +1,9 @@
 #pragma once
 
-#include "agl/opengl/names.hpp"
+#include "agl/opengl/name/all.hpp"
 #include "agl/opengl/qualifier/buffer_target.hpp"
 
 namespace agl {
-
-
 
 inline
 void bind_buffer(BufferTarget t, Buffer b) {

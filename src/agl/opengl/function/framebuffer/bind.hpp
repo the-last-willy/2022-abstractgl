@@ -1,7 +1,7 @@
 #pragma once
 
 #include "agl/opengl/enum/framebuffer_target.hpp"
-#include "agl/opengl/names.hpp"
+#include "agl/opengl/name/all.hpp"
 
 namespace agl {
 

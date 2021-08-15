@@ -1,11 +1,11 @@
 #pragma once
 
-#include "agl/opengl/names.hpp"
+#include "agl/opengl/name/all.hpp"
 
 namespace agl {
 
 inline
-Program create(ProgramTag) {
+Program create(tag::Program) {
     return Program(glCreateProgram());
 }
 

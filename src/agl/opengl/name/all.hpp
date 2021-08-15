@@ -76,9 +76,6 @@ struct BufferTraits {
 
 using Buffer = Name<BufferTraits>;
 
-struct BufferTag {};
-constexpr auto buffer_tag = BufferTag();
-
 ////////////////////////////////////////////////////////////////////////////////
 // Framebuffer.
 
@@ -89,9 +86,6 @@ struct FramebufferTraits {
 };
 
 using Framebuffer = Name<FramebufferTraits>;
-
-struct FramebufferTag {};
-constexpr auto framebuffer_tag = FramebufferTag();
 
 ////////////////////////////////////////////////////////////////////////////////
 // Program.
@@ -104,9 +98,6 @@ struct ProgramTraits {
 
 using Program = Name<ProgramTraits>;
 
-struct ProgramTag {};
-constexpr auto program_tag = ProgramTag();
-
 ////////////////////////////////////////////////////////////////////////////////
 // Sampler.
 
@@ -117,9 +108,6 @@ struct SamplerTraits {
 };
 
 using Sampler = Name<SamplerTraits>;
-
-struct SamplerTag {};
-constexpr auto sampler_tag = SamplerTag();
 
 ////////////////////////////////////////////////////////////////////////////////
 // Shader.
@@ -132,9 +120,6 @@ struct ShaderTraits {
 
 using Shader = Name<ShaderTraits>;
 
-struct ShaderTag {};
-constexpr auto shader_tag = ShaderTag();
-
 ////////////////////////////////////////////////////////////////////////////////
 // Texture.
 
@@ -146,9 +131,6 @@ struct TextureTraits {
 
 using Texture = Name<TextureTraits>;
 
-struct TextureTag {};
-constexpr auto texture_tag = TextureTag();
-
 ////////////////////////////////////////////////////////////////////////////////
 // VertexArray.
 
@@ -159,8 +141,5 @@ struct VertexArrayTraits {
 };
 
 using VertexArray = Name<VertexArrayTraits>;
-
-struct VertexArrayTag {};
-constexpr auto vertex_array_tag = VertexArrayTag();
 
 }

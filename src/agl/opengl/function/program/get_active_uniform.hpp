@@ -1,7 +1,7 @@
 #pragma once
 
 #include "agl/opengl/function/program/get_program.hpp"
-#include "agl/opengl/names.hpp"
+#include "agl/opengl/name/all.hpp"
 #include "agl/opengl/qualifier/uniform_index.hpp"
 
 #include <string>

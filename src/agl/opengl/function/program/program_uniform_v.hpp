@@ -5,7 +5,7 @@
 #include "agl/glsl/vec/vec2.hpp"
 #include "agl/glsl/vec/vec3.hpp"
 #include "agl/glsl/vec/vec4.hpp"
-#include "agl/opengl/names.hpp"
+#include "agl/opengl/name/all.hpp"
 #include "agl/opengl/qualifier/uniform_index.hpp"
 
 namespace agl {

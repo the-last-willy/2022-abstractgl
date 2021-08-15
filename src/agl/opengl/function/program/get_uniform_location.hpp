@@ -2,7 +2,7 @@
 
 #include "agl/opengl/qualifier/czstring.hpp"
 #include "agl/opengl/qualifier/uniform_index.hpp"
-#include "agl/opengl/names.hpp"
+#include "agl/opengl/name/all.hpp"
 
 namespace agl {
 
