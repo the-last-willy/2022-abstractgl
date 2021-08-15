@@ -4,6 +4,7 @@
 #include "binding_index.hpp"
 #include "buffer_target.hpp"
 #include "count.hpp"
+#include "depth.hpp"
 #include "draw_mode.hpp"
 #include "draw_type.hpp"
 #include "instance_count.hpp"
