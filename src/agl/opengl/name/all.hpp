@@ -1,5 +1,7 @@
 #pragma once
 
+#include "agl/opengl/tag/all.hpp"
+
 #include "agl/common/scoped.hpp"
 
 namespace agl {
@@ -9,12 +11,15 @@ concept NameTraits = true;
 
 template<NameTraits NT>
 struct Name {
-    GLuint id = 0;
+    GLuint id = GL_NONE;
 
     constexpr
-    Name() noexcept {}
+    Name() noexcept = default;
 
-    explicit
+    constexpr
+    Name(None) noexcept {}
+
+    constexpr explicit
     Name(GLuint id) noexcept
         : id(id)
     {}
@@ -29,41 +34,6 @@ struct Name {
         return id;
     }
 };
-
-// template<NameTraits NT>
-// struct Scoped<Name<NT>> : Name<NT> {
-//     Scoped() noexcept {}
-
-//     Scoped(Name<NT>&& n) noexcept
-//         : Name<NT>(n)
-//     {}
-
-//     Scoped(const Scoped&) = delete;
-
-//     Scoped(Scoped&& s) noexcept
-//         : Name<NT>(s)
-//     {
-//         s.id = 0;
-//     }
-
-//     Scoped& operator=(const Scoped& s) = delete;
-
-//     Scoped& operator=(Scoped&& s) noexcept {
-//         NT::delete_(*this);
-//         Name<NT>::id = s.id;
-//         s.id = 0;
-//         return *this;
-//     }
-
-//     ~Scoped() noexcept {
-//         NT::delete_(*this);
-//     }
-// };
-
-// template<typename Traits>
-// auto scoped(Name<Traits> n) {
-//     return Scoped<Traits>(n);
-// }
 
 ////////////////////////////////////////////////////////////////////////////////
 // Buffer.
@@ -86,6 +56,8 @@ struct FramebufferTraits {
 };
 
 using Framebuffer = Name<FramebufferTraits>;
+
+constexpr auto default_framebuffer = Framebuffer(0);
 
 ////////////////////////////////////////////////////////////////////////////////
 // Program.
