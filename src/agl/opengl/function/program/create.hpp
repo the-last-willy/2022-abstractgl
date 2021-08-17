@@ -5,7 +5,7 @@
 namespace agl {
 
 inline
-Program create(tag::Program) {
+Program create(ProgramTag) {
     return Program(glCreateProgram());
 }
 

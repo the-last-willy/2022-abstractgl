@@ -1,26 +1,26 @@
 #pragma once
 
-namespace agl::tag {
+namespace agl {
 
-struct Buffer {};
-constexpr auto buffer = Buffer();
+struct BufferTag {};
+constexpr auto buffer_tag = BufferTag();
 
-struct Framebuffer {};
-constexpr auto framebuffer = Framebuffer();
+struct FramebufferTag {};
+constexpr auto framebuffer_tag = FramebufferTag();
 
-struct Program {};
-constexpr auto program = Program();
+struct ProgramTag {};
+constexpr auto program_tag = ProgramTag();
 
-struct Sampler {};
-constexpr auto sampler = Sampler();
+struct SamplerTag {};
+constexpr auto sampler_tag = SamplerTag();
 
-struct Shader {};
-constexpr auto shader = Shader();
+struct ShaderTag {};
+constexpr auto shader_tag = ShaderTag();
 
-struct Texture {};
-constexpr auto texture = Texture();
+struct TextureTag {};
+constexpr auto texture_tag = TextureTag();
 
-struct VertexArray {};
-constexpr auto vertex_array = VertexArray();
+struct VertexArrayTag {};
+constexpr auto vertex_array_tag = VertexArrayTag();
 
 }

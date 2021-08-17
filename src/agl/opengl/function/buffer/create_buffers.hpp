@@ -15,7 +15,7 @@ void create(std::span<Buffer> s) {
 }
 
 inline
-Buffer create(tag::Buffer) {
+Buffer create(BufferTag) {
     auto b = Buffer();
     glCreateBuffers(1, &b.id);
     return b;

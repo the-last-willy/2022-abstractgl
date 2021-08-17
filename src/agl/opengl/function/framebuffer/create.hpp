@@ -8,7 +8,7 @@ namespace agl {
 
 
 inline
-Framebuffer create(tag::Framebuffer) {
+Framebuffer create(FramebufferTag) {
     auto f = Framebuffer();
     glCreateFramebuffers(1, &f.id);
     return f;
