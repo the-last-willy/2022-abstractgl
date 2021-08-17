@@ -1,7 +1,7 @@
 #pragma once
 
+#include "agl/opengl/enum/framebuffer_attachment.hpp"
 #include "agl/opengl/qualifier/level.hpp"
-#include "agl/opengl/qualifier/texture_attachment.hpp"
 #include "agl/opengl/name/all.hpp"
 
 namespace agl {
@@ -9,14 +9,14 @@ namespace agl {
 inline
 void texture(
     Framebuffer f,
-    TextureAttachment ta,
+    FramebufferAttachment fa,
     Texture t,
     Level l,
     GLint layer)
 {
     glNamedFramebufferTextureLayer(
         f,
-        static_cast<GLenum>(ta),
+        fa,
         t,
         l,
         layer);
@@ -25,13 +25,13 @@ void texture(
 inline
 void texture(
     Framebuffer f,
-    TextureAttachment ta,
+    FramebufferAttachment fa,
     Texture t,
     Level l = Level(0))
 {
     glNamedFramebufferTexture(
         f,
-        static_cast<GLenum>(ta),
+        fa,
         t,
         l);
 }

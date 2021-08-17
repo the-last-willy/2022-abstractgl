@@ -1,22 +1,14 @@
 #pragma once
 
-#include "agl/opengl/enum/framebuffer_target.hpp"
 #include "agl/opengl/name/all.hpp"
 
 namespace agl {
 
 inline
-void bind(FramebufferTarget ft, Framebuffer f) {
+void bind(Framebuffer f) {
     glBindFramebuffer(
-        static_cast<GLenum>(ft),
+        GL_FRAMEBUFFER,
         f);
-}
-
-inline
-void unbind(FramebufferTarget ft) {
-    glBindFramebuffer(
-        static_cast<GLenum>(ft),
-        0);
 }
 
 }
