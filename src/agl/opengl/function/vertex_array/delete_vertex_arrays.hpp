@@ -7,6 +7,11 @@
 namespace agl {
 
 inline
+void delete_(VertexArray va) {
+    glDeleteVertexArrays(1, &va.id);
+}
+
+inline
 void delete_vertex_arrays(GLsizei n, VertexArray* vas) {
     glDeleteVertexArrays(
         n,
@@ -18,11 +23,6 @@ void delete_(std::span<VertexArray> s) {
     delete_vertex_arrays(
         static_cast<GLsizei>(size(s)),
         data(s));
-}
-
-inline
-void detete_(VertexArray va) {
-    delete_({&va, 1});
 }
 
 }
