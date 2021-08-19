@@ -1,12 +1,10 @@
 #pragma once
 
 #include "names.hpp"
+#include "none.hpp"
 #include "shader_types.hpp"
 
 namespace agl {
-
-struct None {};
-constexpr auto none = None();
 
 // Buffers.
 
