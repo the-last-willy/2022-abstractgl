@@ -14,7 +14,6 @@
 #include "offset.hpp"
 #include "size.hpp"
 #include "stride.hpp"
-#include "texture_attachment.hpp"
 #include "texture_target.hpp"
 #include "texture_unit.hpp"
 #include "uniform_index.hpp"
