@@ -1,6 +1,7 @@
 #pragma once
 
 #include "agl/opengl/name/all.hpp"
+#include "agl/opengl/tag/names.hpp"
 
 namespace agl {
 
@@ -15,8 +16,8 @@ void bind(VertexArray va) {
 }
 
 inline
-void unbind_vertex_array() {
-    glBindVertexArray(0);
+void unbind(agl::VertexArrayTag) {
+    glBindVertexArray(GL_NONE);
 }
 
 }
