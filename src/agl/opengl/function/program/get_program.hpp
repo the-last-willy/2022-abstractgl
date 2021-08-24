@@ -6,7 +6,7 @@
 namespace agl {
 
 inline
-void get_program(
+void get(
     Program p,
     ProgramParameter pp,
     GLint* params)
@@ -15,15 +15,6 @@ void get_program(
         p,
         static_cast<GLenum>(pp),
         params);
-}
-
-inline
-void get(
-    Program p,
-    ProgramParameter pp,
-    GLint* params)
-{
-    get_program(p, pp, params);
 }
 
 inline
@@ -60,6 +51,15 @@ GLint active_uniform_max_length(
     GLint i;
     get(p, ProgramParameter::active_uniform_max_length, &i);
     return i;
+}
+
+inline
+GLboolean link_status(
+    Program p)
+{
+    GLint i;
+    get(p, ProgramParameter::link_status, &i);
+    return static_cast<GLboolean>(i);
 }
 
 }
