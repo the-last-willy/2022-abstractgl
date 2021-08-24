@@ -3,6 +3,7 @@
 #include "attach.hpp"
 #include "create.hpp"
 #include "delete.hpp"
+#include "frag_data_location.hpp"
 #include "get_active_attrib.hpp"
 #include "get_active_uniform.hpp"
 #include "get_program.hpp"
