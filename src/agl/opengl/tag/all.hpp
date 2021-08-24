@@ -17,4 +17,9 @@ constexpr auto depth_tag = DepthTag();
 struct StencilTag {};
 constexpr auto stencil_tag = StencilTag();
 
+// Program parameters.
+
+struct LinkStatusTag {};
+constexpr auto link_status_tag = LinkStatusTag();
+
 }
