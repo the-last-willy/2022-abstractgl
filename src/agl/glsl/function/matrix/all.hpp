@@ -1,5 +1,6 @@
 #pragma once
 
+#include "addition_operator.hpp"
 #include "inverse.hpp"
 #include "look_at.hpp"
 #include "multiplication.hpp"
