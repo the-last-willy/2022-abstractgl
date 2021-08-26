@@ -5,6 +5,16 @@
 
 namespace agl {
 
+template<typename Type, std::size_t I, std::size_t J> constexpr
+auto operator*(Type lt, const Mat<Type, I, J>& rm) {
+    auto m = Mat<Type, I, J>();
+    for(std::size_t i = 0; i < I; ++i)
+    for(std::size_t j = 0; j < J; ++j) {
+        m[i][j] += lt * rm[i][j];
+    }
+    return m;
+}
+
 template<typename Type, std::size_t I, std::size_t J, std::size_t K> constexpr
 auto operator*(const Mat<Type, I, J>& lm , const Mat<Type, K, I>& rm) {
     auto m = Mat<Type, K, J>();
