@@ -7,6 +7,7 @@
 namespace agl {
 
 using Vec3 = Vec<GLfloat, 3>;
+using Uvec3 = Vec<GLuint, 3>;
 
 constexpr
 auto vec3(float e0, float e1, float e2) noexcept {
