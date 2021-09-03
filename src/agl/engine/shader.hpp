@@ -1,9 +1,12 @@
 #pragma once
 
+#include "agl/standard/all.hpp"
+
 #include "local/all.hpp"
 
 #include <agl/all.hpp>
 
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <regex>
@@ -19,7 +22,7 @@ struct ShaderCompiler {
 
     auto read_file(const std::string& filepath) const {
         auto fullpath = root + filepath;
-        return file(fullpath);;
+        return agl::standard::string(std::filesystem::path(fullpath));
     }
 
     std::string process_include_directives(const std::string& source) const {

@@ -4,7 +4,6 @@
 #include "program.hpp"
 
 #include <agl/all.hpp>
-#include <common/all.hpp>
 
 #include <memory>
 #include <vector>

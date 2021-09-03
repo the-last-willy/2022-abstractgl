@@ -1,8 +1,9 @@
 #pragma once
 
 #include <agl/all.hpp>
-#include <file.hpp>
+#include <agl/standard/all.hpp>
 
+#include <filesystem>
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
@@ -19,7 +20,8 @@ inline
 auto read(const std::string& filepath) {
     auto f = File();
 
-    auto stream = std::stringstream(file(filepath));
+    auto stream = std::stringstream(
+        agl::standard::string(std::filesystem::path(filepath)));
 
     std::size_t vertex_count;
     stream >> vertex_count;

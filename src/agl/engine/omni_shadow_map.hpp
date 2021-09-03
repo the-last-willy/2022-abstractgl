@@ -1,6 +1,5 @@
 #pragma once
 
-#include "agl/engine/data/gltf/cubic_shadow_mapping_material.hpp"
 #include "agl/engine/scene/perspective_projection.hpp"
 #include "agl/engine/scene/view.hpp"
 #include "agl/engine/framebuffer.hpp"
@@ -49,7 +48,7 @@ struct OmniShadowMap {
                 clear(f, agl::depth_tag, 1.f); };
         }
         { // Material.
-            material = gltf::cubic_shadow_mapping_material();
+            // material = gltf::cubic_shadow_mapping_material();
         }
         { // Texture.
             auto& t = texture->texture = create(agl::TextureTarget::cube_map_array);
