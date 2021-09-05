@@ -27,7 +27,7 @@ inline
 GLint info_log_length(Shader s) {
     GLint i;
     get(s, GL_INFO_LOG_LENGTH, &i);
-    return static_cast<GLboolean>(i);
+    return i;
 }
 
 }
