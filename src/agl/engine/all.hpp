@@ -7,6 +7,7 @@
 #include "camera.hpp"
 #include "framebuffer.hpp"
 #include "material.hpp"
+#include "mesh_instance.hpp"
 #include "mesh.hpp"
 #include "node.hpp"
 #include "node.hpp"

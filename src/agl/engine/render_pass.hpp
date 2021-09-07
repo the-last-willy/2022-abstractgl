@@ -1,5 +1,6 @@
 #pragma once
 
+#include "mesh_instance.hpp"
 #include "mesh.hpp"
 #include "program.hpp"
 
@@ -12,6 +13,8 @@ namespace eng {
 
 struct RenderPass {
     std::shared_ptr<Program> program = {};
+
+    std::vector<std::shared_ptr<MeshInstance>> mesh_instances;
 
     std::vector<std::shared_ptr<Primitive>> primitives = {};
     std::vector<agl::VertexArray> vertex_arrays = {};
@@ -59,5 +62,25 @@ void add(RenderPass& rp, const Mesh& m) {
         rp.vertex_arrays.push_back(std::move(va));
     }
 }
+
+inline
+void bind(const RenderPass& rp) {
+    bind(rp.program);
+}
+
+inline
+void unbind(const RenderPass& rp) {
+    unbind(rp.program);
+}
+
+// struct RenderPassBinding {
+//     const RenderPass& render_pass;
+
+//     RenderPassBinding(const RenderPass& rp)
+//         : render_pass(rp)
+//     {
+//         bind(rp.program);
+//     }
+// };
 
 }
