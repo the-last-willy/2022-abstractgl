@@ -64,13 +64,13 @@ void add(RenderPass& rp, const Mesh& m) {
 }
 
 inline
-void bind(const RenderPass& rp) {
-    bind(rp.program);
+void bind(const RenderPass&) {
+    // bind(rp.program);
 }
 
 inline
-void unbind(const RenderPass& rp) {
-    unbind(rp.program);
+void unbind(const RenderPass&) {
+    // unbind(rp.program);
 }
 
 // struct RenderPassBinding {
