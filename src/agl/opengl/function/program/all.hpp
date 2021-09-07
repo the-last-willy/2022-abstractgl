@@ -1,5 +1,6 @@
 #pragma once
 
+#include "active_subroutine_uniform_location.hpp"
 #include "attach.hpp"
 #include "create.hpp"
 #include "delete.hpp"
@@ -12,4 +13,7 @@
 #include "program_uniform_matrix.hpp"
 #include "program_uniform_v.hpp"
 #include "program_uniform.hpp"
+#include "subroutine_index.hpp"
+#include "subroutine_uniform_location.hpp"
+#include "uniform_subroutines.hpp"
 #include "use.hpp"
