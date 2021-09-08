@@ -1,6 +1,7 @@
 #pragma once
 
 #include "buffer.hpp"
+#include "buffer_view.hpp"
 
 #include <agl/all.hpp>
 
@@ -24,11 +25,16 @@ struct Accessor {
 
     // Buffer view.
 
+    std::size_t buffer_view;
+
+    // REMOVE THAT FROM HERE.
     agl::Stride<GLsizei> buffer_view_byte_stride = agl::Stride<GLsizei>(0);
     agl::Offset<GLintptr> buffer_view_byte_offset = agl::Offset<GLintptr>(0);
 
     // Buffer.
+    
 
+    // REMOVE THAT FROM HERE.
     std::shared_ptr<eng::Buffer> buffer = {};
 };
 

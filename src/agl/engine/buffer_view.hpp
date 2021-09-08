@@ -5,12 +5,13 @@
 namespace eng {
 
 struct BufferView {
-    agl::Buffer buffer = agl::buffer();
+    std::size_t buffer;
 
-    agl::Offset<GLintptr> offset = agl::Offset<GLintptr>(0);
-    agl::Size<GLint> size = agl::Size<GLint>(0);
-    agl::Stride<GLsizei> stride = agl::Stride<GLsizei>(0);
-    GLenum type = 0;
+    agl::Size<GLint> byte_length = agl::Size<GLint>(0);
+    agl::Offset<GLintptr> byte_offset = agl::Offset<GLintptr>(0);
+    agl::Stride<GLsizei> byte_stride = agl::Stride<GLsizei>(0);
+
+    // target attribute ?
 };
 
 }
