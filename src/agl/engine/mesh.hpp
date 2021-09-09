@@ -8,7 +8,7 @@
 namespace eng {
 
 struct Mesh {
-    std::string name = "mesh";
+    // sstd::string name = "mesh";
     std::deque<std::shared_ptr<Primitive>> primitives = {};
 };
 
