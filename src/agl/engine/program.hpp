@@ -3,8 +3,6 @@
 #include "capability.hpp"
 #include "shader.hpp"
 
-#include <agl/all.hpp>
-
 #include <iostream>
 #include <vector>
 #include <map>

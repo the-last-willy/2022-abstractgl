@@ -4,8 +4,6 @@
 
 #include "local/all.hpp"
 
-#include <agl/all.hpp>
-
 #include <filesystem>
 #include <fstream>
 #include <iostream>

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "scene/all.hpp"
 #include "accessor.hpp"
 #include "animation.hpp"
 #include "buffer.hpp"
@@ -12,6 +11,7 @@
 #include "node.hpp"
 #include "node.hpp"
 #include "omni_shadow_map.hpp"
+#include "program.hpp"
 #include "render_pass.hpp"
 #include "scene.hpp"
 #include "skin.hpp"
