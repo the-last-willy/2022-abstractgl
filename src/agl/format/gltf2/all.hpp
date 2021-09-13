@@ -1,11 +1,12 @@
 #pragma once
 
-#include <common/all.hpp>
+#include <agl/common/all.hpp>
 #include <agl/engine/all.hpp>
 
 #include <tiny_gltf.h>
 
 #include <algorithm>
+#include <filesystem>
 #include <iomanip>
 #include <map>
 #include <memory>
@@ -521,6 +522,32 @@ auto fill(tinygltf::Model& model) {
     convert_animations(content, model);
     convert_skins(content, model);
     return content;
+}
+
+inline
+Content load(const std::filesystem::path& p) {
+    tinygltf::TinyGLTF loader;
+    tinygltf::Model model;
+
+    std::string err;
+    std::string warn;
+
+    bool ret = loader.LoadASCIIFromFile(&model, &err, &warn, p.string());
+
+    if (!warn.empty()) {
+        throw std::runtime_error("Warning: " + warn);
+    }
+
+    if (!err.empty()) {
+        throw std::runtime_error("Error: " + err);
+    }
+
+    if (!ret) {
+        std::cerr << "Failed to open GLTF file." << std::endl;
+        std::exit(EXIT_FAILURE);
+    }
+
+    return format::gltf2::fill(model);
 }
 
 }
