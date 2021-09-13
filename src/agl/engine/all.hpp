@@ -1,5 +1,6 @@
 #pragma once
 
+#include "scene/all.hpp"
 #include "accessor.hpp"
 #include "animation.hpp"
 #include "buffer.hpp"
