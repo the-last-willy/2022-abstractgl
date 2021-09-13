@@ -49,13 +49,15 @@ void bind_textures(const Material& m) {
 
 inline
 void bind_uniforms(const Material& m) {
-    for(auto& [name, value] : m.uniforms) {
-        auto ul = uniform_location(m.program.program, name.c_str());
-        if(ul) {
-            value->set(m.program.program, *ul);
+    if(m.program.program) {
+        for(auto& [name, value] : m.uniforms) {
+            auto ul = uniform_location(m.program.program, name.c_str());
+            if(ul) {
+                value->set(m.program.program, *ul);
+            }
         }
+        m.on_bind();
     }
-    m.on_bind();
 }
 
 inline

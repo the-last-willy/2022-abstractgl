@@ -17,6 +17,7 @@ namespace eng {
 
 struct ShaderCompiler {
     std::string root = "./";
+    std::string log_folder = local::log_folder;
 
     auto read_file(const std::string& filepath) const {
         auto fullpath = root + filepath;
@@ -55,7 +56,7 @@ struct ShaderCompiler {
             }
         }
         auto log_file = std::ofstream(
-            local::log_folder + "log_" + fp,
+            log_folder + "log_" + fp,
             std::ios::out | std::ios::trunc);
         if(log_file.is_open()) {
             log_file << source << std::flush;

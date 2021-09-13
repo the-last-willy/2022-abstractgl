@@ -29,7 +29,9 @@ struct Primitive {
 
 inline
 void bind(const Primitive& p) {
-    bind(p.vertex_array);
+    if(p.vertex_array) {
+        bind(p.vertex_array);
+    }
     if(p.material) {
         bind(*p.material);
     }
@@ -76,9 +78,11 @@ void bind(Primitive& p, const Material& m) {
 inline
 void unbind(const Primitive& p, const Material& m) {
     unbind(agl::vertex_array_tag);
-    for(int i = 0; i < agl::active_attributes(m.program.program); ++i) {
-        auto ai = agl::AttributeIndex(i);
-        disable(p.vertex_array, ai);
+    if(m.program.program) {
+        for(int i = 0; i < agl::active_attributes(m.program.program); ++i) {
+            auto ai = agl::AttributeIndex(i);
+            disable(p.vertex_array, ai);
+        }
     }
 }
 
@@ -101,7 +105,6 @@ void render(const Primitive& p) {
 
 inline
 void render(const Primitive& p, agl::VertexArray va) {
-    auto b = agl::element_array_buffer_binding(va);
     if(agl::element_array_buffer_binding(va)) {
         agl::draw_elements(
             p.draw_mode,

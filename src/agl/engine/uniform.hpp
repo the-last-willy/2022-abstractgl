@@ -15,6 +15,11 @@ struct Uniform : AnyUniform {
     Value value;
 
     constexpr
+    Uniform(const Value& v) noexcept
+        : value(v)
+    {}
+
+    constexpr
     Uniform(Value&& v) noexcept
         : value(std::move(v))
     {}

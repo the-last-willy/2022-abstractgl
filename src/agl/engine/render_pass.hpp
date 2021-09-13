@@ -3,6 +3,7 @@
 #include "mesh_instance.hpp"
 #include "mesh.hpp"
 #include "program.hpp"
+#include "uniform.hpp"
 
 #include <agl/all.hpp>
 
@@ -18,6 +19,8 @@ struct RenderPass {
 
     std::vector<std::shared_ptr<Primitive>> primitives = {};
     std::vector<agl::VertexArray> vertex_arrays = {};
+
+    std::map<std::string, std::shared_ptr<AnyUniform>> uniforms;
 };
 
 inline
@@ -82,5 +85,29 @@ void unbind(const RenderPass&) {
 //         bind(rp.program);
 //     }
 // };
+
+inline
+void bind_uniforms(const RenderPass& rp) {
+    for(auto& [name, value] : rp.uniforms) {
+        auto ul = uniform_location(rp.program->program, name.c_str());
+        if(ul) {
+            value->set(rp.program->program, *ul);
+        }
+    }
+}
+
+inline
+void render(const RenderPass& rp) {
+    bind(*rp.program);
+    bind_uniforms(rp);
+    for(std::size_t i = 0; i < size(rp.vertex_arrays); ++i) {
+        auto& p = *rp.primitives[i];
+        bind(rp.vertex_arrays[i]);
+        bind(p);
+        eng::render(p);
+        unbind(p);
+    }
+    unbind(*rp.program);
+}
 
 }
