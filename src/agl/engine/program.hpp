@@ -50,9 +50,7 @@ void bind(const Program& p) {
     for(auto c : p.capabilities) {
         enable(c);
     }
-    if(p.program) {
-        use(p.program);
-    }
+    use(p.program);
 }
 
 inline
