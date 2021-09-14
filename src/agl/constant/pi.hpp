@@ -2,7 +2,7 @@
 
 #include "pi.hpp"
 
-namespace agl {
+namespace agl::constant {
 
 constexpr float pi = 3.14159265359f;
 
