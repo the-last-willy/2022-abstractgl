@@ -16,7 +16,7 @@ struct OrthographicProjection {
 
 struct PerspectiveProjection {
     float aspect_ratio = 1.f;
-    float y_fov = agl::pi / 2.f;
+    float y_fov = agl::constant::pi / 2.f;
     std::optional<float> z_far = 1'000.f;
     float z_near = 0.1f;
 };

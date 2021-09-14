@@ -29,12 +29,12 @@ struct OmniShadowMap {
             projection.aspect_ratio = 1.f;
         }
         { // Views.
-            views[0].yaw = agl::pi / 2.f; // X+
-            views[1].yaw = -agl::pi / 2.f; // X-
-            views[2].pitch = agl::pi / 2.f; // Y+
-            views[3].pitch = -agl::pi / 2.f; // Y-
+            views[0].yaw = agl::constant::pi / 2.f; // X+
+            views[1].yaw = -agl::constant::pi / 2.f; // X-
+            views[2].pitch = agl::constant::pi / 2.f; // Y+
+            views[3].pitch = -agl::constant::pi / 2.f; // Y-
             views[4].yaw = 0.f; // Z+
-            views[5].yaw = agl::pi; // Z-
+            views[5].yaw = agl::constant::pi; // Z-
         }
 
         { // Framebuffer.

@@ -12,7 +12,7 @@
 namespace eng {
 
 struct Accessor {
-    std::size_t count = {};
+    std::size_t count = 0;
 
     agl::Offset<GLuint> byte_offset = agl::Offset<GLuint>(0);
     agl::Size<GLint> component_count = agl::Size<GLint>(0);
