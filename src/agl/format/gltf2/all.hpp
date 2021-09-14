@@ -332,6 +332,7 @@ void convert_meshes(Content& content, tinygltf::Model& model) {
                     static_cast<GLsizei>(first_accessor.count));
             } else {
                 auto& accessor = model.accessors[primitive.indices];
+                eng_primitive.indices = content.accessors[primitive.indices];
                 auto& buffer_view = model.bufferViews[accessor.bufferView];
                 if(accessor.componentType == GL_UNSIGNED_BYTE) {
                     auto& buffer = model.buffers[buffer_view.buffer];

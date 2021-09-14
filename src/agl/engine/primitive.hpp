@@ -51,7 +51,6 @@ void bind(Primitive& p, const Material& m) {
         auto bi = agl::BindingIndex<GLuint>(i);
         auto ai = attribute_location(m.program.program, aa.name.c_str());
         attribute_binding(p.vertex_array, ai, bi);
-
         auto it = p.attributes.find(aa.name);
         if(it != end(p.attributes)) {
             auto& accessor = it->second;
@@ -72,6 +71,7 @@ void bind(Primitive& p, const Material& m) {
             // throw std::runtime_error("Missing vertex attribute.");
         }
     }
+    std::cout << std::endl;
     bind(p.vertex_array);
 }
 
@@ -88,18 +88,17 @@ void unbind(const Primitive& p, const Material& m) {
 
 inline
 void render(const Primitive& p) {
-    auto b = agl::element_array_buffer_binding(p.vertex_array);
-    if(agl::element_array_buffer_binding(p.vertex_array)) {
+    if(p.indices.count == 0) {
+        agl::draw_arrays(
+            p.draw_mode,
+            agl::Offset<GLint>(static_cast<GLint>(p.offset)),
+            p.primitive_count);
+    } else {
         agl::draw_elements(
             p.draw_mode,
             p.primitive_count,
             p.draw_type,
             agl::Offset<GLintptr>(p.offset));
-    } else {
-        agl::draw_arrays(
-            p.draw_mode,
-            agl::Offset<GLint>(static_cast<GLint>(p.offset)),
-            p.primitive_count);
     }
 }
 
