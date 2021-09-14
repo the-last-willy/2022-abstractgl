@@ -1,5 +1,6 @@
 #pragma once
 
+#include "render_pass/all.hpp"
 #include "scene/all.hpp"
 #include "accessor.hpp"
 #include "animation.hpp"
