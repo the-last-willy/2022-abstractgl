@@ -1,5 +1,6 @@
 #pragma once
 
+#include "agl/engine/mesh_instance/all.hpp"
 #include "agl/engine/mesh.hpp"
 #include "agl/engine/primitive.hpp"
 #include "agl/engine/program.hpp"
@@ -12,8 +13,7 @@
 namespace agl::engine {
 
 struct RenderPassSubscription {
-    // Should be MeshInstance instead.
-    std::shared_ptr<eng::Mesh> mesh;
+    std::shared_ptr<const MeshInstance> mesh;
 
     std::vector<agl::VertexArray> vertex_arrays;
 };

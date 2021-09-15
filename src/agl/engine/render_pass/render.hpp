@@ -18,9 +18,10 @@ void render(const RenderPass& rp) {
     }
     { // Draw calls.
         for(auto& s : rp.subscriptions) {
+            upload_to(*s.mesh, program(rp));
             for(std::size_t i = 0; i < size(s.vertex_arrays); ++i) {
                 { // Upload material uniforms.
-                    for(auto& [name, value] : s.mesh->primitives[i]->material->uniforms) {
+                    for(auto& [name, value] : primitive(*s.mesh, i).material->uniforms) {
                         auto ul = uniform_location(program(rp).program, name.c_str());
                         if(ul) {
                             value->set(program(rp).program, *ul);
@@ -28,7 +29,7 @@ void render(const RenderPass& rp) {
                     }
                 }
                 bind(s.vertex_arrays[i]);
-                eng::render(*s.mesh->primitives[i]);
+                eng::render(primitive(*s.mesh, i));
             }
         }
     }

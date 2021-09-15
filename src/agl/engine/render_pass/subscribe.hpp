@@ -43,13 +43,21 @@ void subscribe(RenderPass& rp, const eng::Primitive& pi, VertexArray va) {
 }
 
 inline
-void subscribe(RenderPass& rp, const std::shared_ptr<eng::Mesh>& m) {
+void subscribe(RenderPass& rp, const std::shared_ptr<const MeshInstance>& mi) {
     auto& s = rp.subscriptions.emplace_back();
-    s.mesh = m;
-    for(auto& p : m->primitives) {
+    s.mesh = mi;
+    for(auto& p : primitives(*mi)) {
         auto va = s.vertex_arrays.emplace_back(create(agl::vertex_array_tag));
-        subscribe(rp, *p, va);
+        subscribe(rp, p, va);
     }
+}
+
+inline
+auto subscribe(RenderPass& rp, const std::shared_ptr<eng::Mesh>& m) {
+    auto mi = std::make_shared<MeshInstance>();
+    mi->mesh = m;
+    subscribe(rp, mi);
+    return mi;
 }
 
 }
