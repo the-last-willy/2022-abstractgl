@@ -3,6 +3,8 @@
 #include "program.hpp"
 #include "render_pass.hpp"
 
+#include "agl/engine/material/all.hpp"
+
 namespace agl::engine {
 
 inline
@@ -20,14 +22,7 @@ void render(const RenderPass& rp) {
         for(auto& s : rp.subscriptions) {
             upload_to(*s.mesh, program(rp));
             for(std::size_t i = 0; i < size(s.vertex_arrays); ++i) {
-                { // Upload material uniforms.
-                    for(auto& [name, value] : primitive(*s.mesh, i).material->uniforms) {
-                        auto ul = uniform_location(program(rp).program, name.c_str());
-                        if(ul) {
-                            value->set(program(rp).program, *ul);
-                        }
-                    }
-                }
+                upload_to(*primitive(*s.mesh, i).material, program(rp));
                 bind(s.vertex_arrays[i]);
                 eng::render(primitive(*s.mesh, i));
             }
