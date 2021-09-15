@@ -62,7 +62,7 @@ void bind_uniforms(const Material& m) {
 
 inline
 void bind(const Material& m) {
-    bind(m.program);
+    // bind(m.program);
     bind_textures(m);
     bind_uniforms(m);
     m.on_bind();
