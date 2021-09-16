@@ -21,6 +21,7 @@ struct Content {
     std::map<int, agl::Texture> images = {};
     std::map<int, std::shared_ptr<eng::Material>> materials = {};
     std::map<int, std::shared_ptr<eng::Mesh>> meshes = {};
+    std::deque<std::shared_ptr<agl::engine::MeshInstance>> mesh_instances = {};
     std::map<int, std::shared_ptr<eng::Node>> nodes = {};
     std::map<int, agl::Sampler> samplers = {};
     std::map<int, std::shared_ptr<eng::Scene>> scenes = {};
@@ -420,6 +421,9 @@ void convert_nodes(Content& content, tinygltf::Model& model) {
         }
         if(node.mesh != -1) {
             eng_node.mesh = content.meshes.at(node.mesh);
+            eng_node.mesh_instance = content.mesh_instances.emplace_back(
+                std::make_shared<agl::engine::MeshInstance>(
+                    content.meshes.at(node.mesh)));
         }
         if(node.skin != -1) {
             eng_node.skin = content.skins.at(node.skin);
@@ -465,17 +469,6 @@ void convert_skins(Content& content, tinygltf::Model& model) {
         if(skin.inverseBindMatrices != -1) {
             eng_skin.inverse_bind_matrices
             = content.accessors.at(skin.inverseBindMatrices);
-
-            for(std::size_t j = 0; j < eng_skin.inverse_bind_matrices.count; ++j) {
-                auto& ibm = at<agl::Mat4>(eng_skin.inverse_bind_matrices, j);
-                for(std::size_t r = 0; r < 4; ++r) {
-                    for(std::size_t c = 0; c < 4; ++c) {
-                        std::cout << std::setprecision(6) << std::setw(15) << ibm[c][r] << " ";
-                    }
-                    std::cout << std::endl;
-                }
-                endl(std::cout);
-            }
         }
         for(auto& node_id : skin.joints) {
             eng_skin.joints.push_back(content.nodes.at(node_id));

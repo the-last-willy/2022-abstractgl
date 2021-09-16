@@ -24,6 +24,10 @@ struct Transform {
 
     Transform() noexcept = default;
 
+    Transform(const agl::Mat4& m)
+        : representation(m)
+    {}
+
     Transform(agl::Mat4&& m)
         : representation(std::move(m))
     {}

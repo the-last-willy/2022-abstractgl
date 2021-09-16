@@ -4,6 +4,8 @@
 #include "mesh.hpp"
 #include "transform.hpp"
 
+#include "agl/engine/mesh_instance/mesh_instance.hpp"
+
 #include <agl/all.hpp>
 
 #include <memory>
@@ -20,8 +22,11 @@ struct Node {
     Transform transform = {};
     
     std::optional<std::shared_ptr<Camera>> camera = std::nullopt;
+    // SHOULD BE REMOVED.
     std::optional<std::shared_ptr<Mesh>> mesh = std::nullopt;
     std::optional<std::shared_ptr<Skin>> skin = std::nullopt;
+
+    std::shared_ptr<agl::engine::MeshInstance> mesh_instance;
 };
 
 template<typename F>
