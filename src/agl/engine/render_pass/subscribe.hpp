@@ -43,7 +43,7 @@ void subscribe(RenderPass& rp, const eng::Primitive& pi, VertexArray va) {
 }
 
 inline
-void subscribe(RenderPass& rp, const std::shared_ptr<const MeshInstance>& mi) {
+void subscribe(RenderPass& rp, const std::shared_ptr<MeshInstance>& mi) {
     auto& s = rp.subscriptions.emplace_back();
     s.mesh = mi;
     for(auto& p : primitives(*mi)) {

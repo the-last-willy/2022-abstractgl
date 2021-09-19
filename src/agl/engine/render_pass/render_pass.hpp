@@ -13,7 +13,7 @@
 namespace agl::engine {
 
 struct RenderPassSubscription {
-    std::shared_ptr<const MeshInstance> mesh;
+    std::shared_ptr<MeshInstance> mesh;
 
     std::vector<agl::VertexArray> vertex_arrays;
 };
