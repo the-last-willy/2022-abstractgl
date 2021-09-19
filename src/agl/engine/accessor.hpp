@@ -16,7 +16,10 @@ struct Accessor {
 
     agl::Offset<GLuint> byte_offset = agl::Offset<GLuint>(0);
     agl::Size<GLint> component_count = agl::Size<GLint>(0);
+
+    // PROBABLY USELESS. REMOVE IT.
     int component_size = 0; // In bytes.
+
     GLenum component_type = GL_NONE;
     agl::Normalized normalized;
 
