@@ -22,7 +22,9 @@ void render(const RenderPass& rp) {
         for(auto& s : rp.subscriptions) {
             upload_to(*s.mesh, program(rp));
             for(std::size_t i = 0; i < size(s.vertex_arrays); ++i) {
-                upload_to(*primitive(*s.mesh, i).material, program(rp));
+                if(primitive(*s.mesh, i).material) {
+                    upload_to(*primitive(*s.mesh, i).material, program(rp));
+                }
                 bind(s.vertex_arrays[i]);
                 eng::render(primitive(*s.mesh, i));
             }
