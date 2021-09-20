@@ -55,7 +55,7 @@ std::optional<T> min(const Accessor& a) {
     if(empty(a.min)) {
         return std::nullopt;
     } else {
-        return *reinterpret_cast<const T*>(data(a.min));
+        return *reinterpret_cast<const T*>(std::data(a.min));
     }
 }
 
@@ -64,7 +64,7 @@ std::optional<T> max(const Accessor& a) {
     if(empty(a.max)) {
         return std::nullopt;
     } else {
-        return *reinterpret_cast<const T*>(data(a.max));
+        return *reinterpret_cast<const T*>(std::data(a.max));
     }
 }
 
