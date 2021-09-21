@@ -22,19 +22,17 @@ auto load_texture(std::string filepath, int factor) {
         throw std::runtime_error("stb_image: Failure.");
     }
 
-    auto dw = w / factor;
-    auto dh = w / factor;
-    auto downsampled = std::vector<unsigned char>(n * dw * dh);
+    // auto dw = w / factor;
+    // auto dh = w / factor;
+    // auto downsampled = std::vector<unsigned char>(n * dw * dh);
 
-    auto r = stbir_resize_uint8(
-        data, w, h, 0,
-        downsampled.data(), dw, dh, 0,
-        n);
-    if(r == 0) {
-        throw std::runtime_error("stb_image_resize: Failure.");
-    }
-
-    stbi_image_free(data);
+    // auto r = stbir_resize_uint8(
+    //     data, w, h, 0,
+    //     downsampled.data(), dw, dh, 0,
+    //     n);
+    // if(r == 0) {
+    //     throw std::runtime_error("stb_image_resize: Failure.");
+    // }
 
     auto t = agl::create(agl::TextureTarget::_2d);
     GLenum base_internal_format = 0;
@@ -52,15 +50,17 @@ auto load_texture(std::string filepath, int factor) {
         throw std::runtime_error("Invalid texture format.");
     }
     auto level_count = static_cast<GLsizei>(
-        std::floor(std::log2(std::max(dh, dw))) + 1);
+        std::floor(std::log2(std::max(h, w))) + 1);
     agl::storage(
             t, level_count, sized_internal_format,
-            agl::Width(dw), agl::Height(dh));
+            agl::Width(w), agl::Height(h));
     agl::image(
-        t, agl::Width(dw), agl::Height(dh),
+        t, agl::Width(w), agl::Height(h),
         base_internal_format, pixel_data_type,
-        std::as_bytes(std::span(downsampled)));
+        std::as_bytes(std::span(data, w * h * n)));
     agl::generate_mipmap(t);
+
+    stbi_image_free(data);
 
     auto et = eng::Texture();
     et.texture = t;
