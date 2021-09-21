@@ -5,7 +5,7 @@
 namespace agl::engine {
 
 inline
-bool contains(const BoundingBox& bb, agl::vec3 v) {
+bool contains(const BoundingBox& bb, agl::Vec3 v) {
     return v[0] >= bb.min[0]
     and v[1] >= bb.min[1]
     and v[2] >= bb.min[2]

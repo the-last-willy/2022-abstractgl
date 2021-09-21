@@ -1,6 +1,8 @@
 #pragma once
 
 #include "accessor/all.hpp"
+#include "bounding_box/all.hpp"
+#include "camera/all.hpp"
 #include "render_pass/all.hpp"
 #include "scene/all.hpp"
 #include "accessor.hpp"
