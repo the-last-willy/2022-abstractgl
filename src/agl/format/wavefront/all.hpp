@@ -14,7 +14,7 @@
 namespace agl::format::wavefront {
 
 inline
-auto load_texture(std::string filepath, int factor) {
+auto load_texture(std::string filepath, int) {
 
     int w, h, n;
     unsigned char *data = stbi_load(filepath.c_str(), &w, &h, &n, 0);
@@ -111,10 +111,10 @@ Content load(
         auto& material = materials[i];
         auto& eng_material = *(content.materials[i]
             = std::make_shared<eng::Material>());
-        eng_material.textures["baseColorTexture"]
+        eng_material.textures["map_Kd"]
         = std::make_shared<eng::Texture>(
             load_texture((mtl_path.string() + material.diffuse_texname).c_str(), 4));
-        eng_material.uniforms["baseColorFactor"]
+        eng_material.uniforms["Kd"]
         = new eng::Uniform<agl::Vec4>(agl::vec4(
             material.ambient[0],
             material.ambient[1],
@@ -156,11 +156,11 @@ Content load(
                             attrib.texcoords[2 * idx.texcoord_index + 1]);
                     }
                 }
-                eng_primitive.attributes["NORMAL"] = agl::engine::accessor(
+                eng_primitive.attributes["vn"] = agl::engine::accessor(
                     std::span(normals));
-                eng_primitive.attributes["POSITION"] = agl::engine::accessor(
+                eng_primitive.attributes["v"] = agl::engine::accessor(
                     std::span(positions));
-                eng_primitive.attributes["TEXCOORDS_0"] = agl::engine::accessor(
+                eng_primitive.attributes["vt"] = agl::engine::accessor(
                     std::span(texcoords));
                 eng_primitive.draw_type = agl::DrawType::unsigned_int;
                 eng_primitive.indices = agl::engine::accessor(
