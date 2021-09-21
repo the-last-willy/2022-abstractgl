@@ -173,6 +173,11 @@ Content load(
                 auto normals = std::vector<agl::Vec3>(size(mesh.indices));
                 auto positions = std::vector<agl::Vec3>(size(mesh.indices));
                 auto texcoords = std::vector<agl::Vec2>(size(mesh.indices));
+                auto pmin = agl::vec3(
+                    attrib.vertices[0],
+                    attrib.vertices[1],
+                    attrib.vertices[2]);
+                auto pmax = pmin;
                 for(std::size_t j = 0; j < size(mesh.indices); ++j) {
                     auto idx = mesh.indices[j];
                     indices[j] = static_cast<unsigned>(j);
@@ -182,10 +187,27 @@ Content load(
                             attrib.normals[3 * idx.normal_index + 1],
                             attrib.normals[3 * idx.normal_index + 2]);
                     }
-                    positions[j] = agl::vec3(
-                        attrib.vertices[3 * idx.vertex_index + 0],
-                        attrib.vertices[3 * idx.vertex_index + 1],
-                        attrib.vertices[3 * idx.vertex_index + 2]);
+                    {
+                        auto p = positions[j] = agl::vec3(
+                            attrib.vertices[3 * idx.vertex_index + 0],
+                            attrib.vertices[3 * idx.vertex_index + 1],
+                            attrib.vertices[3 * idx.vertex_index + 2]);
+                        if(p[0] < pmin[0]) {
+                            pmin[0] = p[0];
+                        } else if(p[0] > pmax[0]) {
+                            pmax[0] = p[0];
+                        }
+                        if(p[1] < pmin[1]) {
+                            pmin[1] = p[1];
+                        } else if(p[1] > pmax[1]) {
+                            pmax[1] = p[1];
+                        }
+                        if(p[2] < pmin[2]) {
+                            pmin[2] = p[2];
+                        } else if(p[2] > pmax[2]) {
+                            pmax[2] = p[2];
+                        }
+                    }
                     if(idx.texcoord_index >= 0) {
                         texcoords[j] = agl::vec2(
                             attrib.texcoords[2 * idx.texcoord_index + 0],
@@ -196,6 +218,16 @@ Content load(
                     std::span(normals));
                 eng_primitive.attributes["v"] = agl::engine::accessor(
                     std::span(positions));
+                {
+                    eng_primitive.attributes["v"].min.resize(3);
+                    eng_primitive.attributes["v"].min[0] = pmin[0];
+                    eng_primitive.attributes["v"].min[1] = pmin[1];
+                    eng_primitive.attributes["v"].min[2] = pmin[2];
+                    eng_primitive.attributes["v"].max.resize(3);
+                    eng_primitive.attributes["v"].max[0] = pmax[0];
+                    eng_primitive.attributes["v"].max[1] = pmax[1];
+                    eng_primitive.attributes["v"].max[2] = pmax[2];
+                }
                 eng_primitive.attributes["vt"] = agl::engine::accessor(
                     std::span(texcoords));
                 eng_primitive.draw_type = agl::DrawType::unsigned_int;
