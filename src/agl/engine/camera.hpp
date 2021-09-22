@@ -1,5 +1,7 @@
 #pragma once
 
+#include "agl/engine/scene/view.hpp"
+
 #include <agl/all.hpp>
 
 #include <cmath>
@@ -44,7 +46,9 @@ auto transform(const PerspectiveProjection& op) {
 }
 
 struct Camera {
-    agl::Mat4 transform = mat4(agl::identity);
+    // agl::Mat4 transform = mat4(agl::identity);
+
+    agl::engine::View view;
 
     std::variant<OrthographicProjection, PerspectiveProjection> projection
     = PerspectiveProjection();
@@ -53,7 +57,7 @@ struct Camera {
 inline
 auto transform(const Camera& c) {
     if(auto pp = std::get_if<PerspectiveProjection>(&c.projection)) {
-        return transform(*pp) * c.transform;
+        return transform(*pp) * transform(c.view);
     }
     throw std::runtime_error("NOT IMPLEMENTED.");
 }
