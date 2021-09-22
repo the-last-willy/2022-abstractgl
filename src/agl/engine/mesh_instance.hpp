@@ -12,6 +12,8 @@ struct MeshInstance {
     std::shared_ptr<Mesh> mesh;
 
     std::map<std::string, AnyUniform> uniforms;
+
+    bool enabled = true;
 };
 
 }
