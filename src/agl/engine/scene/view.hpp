@@ -2,7 +2,7 @@
 
 #include "agl/opengl/all.hpp"
 
-namespace tlw {
+namespace agl::engine {
 
 struct View {
 	agl::Vec3 rotation_center = agl::vec3(0.f, 0.f, 0.f);
@@ -11,6 +11,7 @@ struct View {
 	float zoom = 1.f;
 
 	// Aircraft rotation.
+	// Some kind of Euler rotation. (Y, X, Z) maybe ?
 	float yaw = 0.f;
 	float pitch = 0.f;
 	float roll = 0.f;

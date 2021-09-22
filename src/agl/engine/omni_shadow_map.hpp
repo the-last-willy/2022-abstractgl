@@ -16,7 +16,7 @@ struct OmniShadowMap {
 
     agl::Vec3 position = {};
     tlw::PerspectiveProjection projection = {};
-    std::array<tlw::View, 6> views = {};
+    std::array<agl::engine::View, 6> views = {};
 
     // OpenGL stuff.
 
