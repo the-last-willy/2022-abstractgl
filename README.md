@@ -22,11 +22,15 @@ The engine module is currently a renderer and only supports OpenGL as a backend.
 
 It is able to fully support glTF files, that is:
 - Textures and samplers
-- PBR pipeline (metallic/roughness, normal mapping, emissivity, ...)
+- PBR pipeline (metallic/roughness, normal mapping, emissivity, ambient occusion)
 - Node hierarchies
 - Keyframe based animations
 - Vertex skinning
 (In fact, it's just missing morphing.)
+
+Lighting (directional, spot and omni) and shadow mapping is supported.
+
+Deferred rendering can be easily supported as well.
 
 Also, automatic shader plumbing and uploading.
 
