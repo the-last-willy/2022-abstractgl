@@ -100,8 +100,9 @@ The maths module provides linear algebra (matrices) and quaternions.
 
 The OpenGL module wraps the aging OpenGL C API and provides a modern C++ interface.
 
-**Abstract.** 
-
+**Abstract.**
+Many parameters can be grouped together in relevant abstractions therefore making function signatures simpler.
+There is also no need to have verbose function names so these have been made shorter as well (nice side effect a few items below).
 
 **Disambiguation.**
 The OpenGL API has become *bloated* and *redundant* over the years.
@@ -109,10 +110,19 @@ It is also the case that advanced users are sometimes not aware of newer functio
 Therefore the API can be reduced to a sane subset and many functions can be deprecated.
 
 **Genericity.**
-
+Writing generic code with the OpenGL API is not possible.
+However it is with this module.
 
 **Strong typing.**
+The OpenGL API makes it very easy to pass the wrong arguments to a function.
+That's because it is thought in terms of data representation (well, it's C).
+Therefore OpenGL types have been encapsulated based on semantics instead of representation in costless way.
 
+**Why not Vulkan ?** 
+In a perfect world, everybody would be using Vulkan since all vendors would support it and there would be tons of tutorials about it.
+However, that's not the case.
+OpenGL is still relevant today and many beginners start from there.
+So we might as well make a better experience out of OpenGL.
 
 ## Long-term goals
 
@@ -152,7 +162,7 @@ Sponza scene with PBR pipeline:
 Computation of normals with Laplacian approximation:
 ![image](https://user-images.githubusercontent.com/84744335/134546328-603c2189-b8da-46e1-912c-5d2af42a5033.png)
 
-TODO: Add a video cuz you can take a screenshot of an animation.
+TODO: Add a video cuz you can't take a screenshot of an animation.
 
 ## Projects
 
