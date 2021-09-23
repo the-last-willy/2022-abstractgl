@@ -1,8 +1,29 @@
-*WORK IN PROGRESS*
+*Nothing is anywhere close to be in a remotely finished state. But it's going forward.*
 
-AbstractGL is a collection of libraries for computer graphics.
+AbstractGL is a collection of libraries for computer graphics (supporting only OpenGL at the moment).
+
+
 
 # Engine module
+
+This module provides abstractions
+
+## TODO
+
+- Abstract it away from OpenGL
+- Move it into its own project
+
+# File format modules
+
+Currently (partially) handled file formats (some using external libraries):
+- glTF 2.0  (.gltf)
+- OFF (.off)
+- Wavefront (.mtl, .obj)
+
+## TODO
+
+- FBX support
+- Retrieve metadata
 
 # GLSL module
 
@@ -25,15 +46,26 @@ Such as:
 
 # Maths module
 
+## TODO
 
+- Distinguish from the GLSL module
 
 # OpenGL module
 
-**Disambiguation.** 
+**Abstract.** 
+
+
+**Disambiguation.**
+The OpenGL API has become *bloated* over the years.
+There are multiple
 
 **Genericity.**
 
 **Strong typing.** 
+
+## Long-term goals
+
+Support older versions of OpenGL (feature emulation) ?
 
 # Compatibility
 
@@ -67,4 +99,6 @@ It is also the case that many advanced users are not aware of newer functions th
 
 **Use what you want.**
 
+# Screenshots
 
+TODO: screenshots of the engine. Maybe a video as well.
