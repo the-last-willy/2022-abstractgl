@@ -2,23 +2,48 @@
 
 AbstractGL is a collection of libraries for computer graphics (supporting only OpenGL at the moment).
 
+I'm aware of how immeasurably ambitious this projects might appears.
+However, I'm not trying to rivalize with anybody.
+It's meant to be used in my other projects (as I don't want to redo things between projects) and it grows depending on the requirements of these.
+
+If you like anything you see, you can just blatantly steal it as it licenced under MIT ;)
+But it would be greatly appreciated if you chose to contribute instead.
+
+Many modules are independent.
+You need only to include what you wish to use.
+
+There is currently not a spec of testing around.
+I can only say that it seems to work in some projects (but that's not testing).
+Please find it in your heart to forgive me.
+
 # Engine module
 
-The engine module is currently just a renderer and only supports OpenGL as a backend.
+The engine module is currently a renderer and only supports OpenGL as a backend.
 
+It is able to fully support glTF files, that is:
+- Textures and samplers
+- PBR pipeline (metallic/roughness, normal mapping, emissivity, ...)
+- Node hierarchies
+- Keyframe based animations
+- Vertex skinning
+(In fact, it's just missing morphing.)
 
+Also, automatic shader plumbing and uploading.
 
 ## Long-term goals
 
-To be a full fledged engine with events, physics (?), scripting, sounds.
+To be a full fledged engine with events, physics (?), scripting (?), sounds (?).
 
 To be multi-platform and able to work with any graphics backend.
+
+Support for ray-tracing based techniques (why not ?).
 
 ## TODO
 
 - Abstract it away from OpenGL
 - Data-oriented
 - Move it into its own project
+- [glTF](https://github.com/KhronosGroup/glTF-Sample-Models) conformance table
 
 # File format modules
 
@@ -34,12 +59,16 @@ Currently handled file formats (some using external libraries):
 
 # GLSL module
 
+The GLSL module provides GLSL types and functions on CPU side.
 
+## Long-term goals
+
+To provide a symbolic representation of GLSL code.
 
 ## TODO
 
-- Distinguish from the OpenGL module.
-- Use GLM internally.
+- Distinguish from the OpenGL module
+- Use the maths module
 
 # GLSL compiler module
 
@@ -56,9 +85,12 @@ Such as:
 
 # Maths module
 
+The maths module provides linear algebra (matrices) and quaternions.
+
 ## TODO
 
 - Distinguish from the GLSL module
+- Use GLM internally
 
 # OpenGL module
 
@@ -97,22 +129,27 @@ This project uses submodules.
 No OpenGL loader is included for the OpenGL module.
 You will need to add one yourself to your own project (see [glad](https://github.com/Dav1dde/glad) or [FreeGLUT](http://freeglut.sourceforge.net/)) and include it before the  
 
+# Showcase
 
-**Deprecating older functions.**
-The OpenGL core profile presents 100+ functions which can be very daunting to beginners.
-A lot of these functions are redundant.
+## Screenshots
 
+Sponza scene with Blinn-Phong lighting and omni directional lighting:
+![image](https://user-images.githubusercontent.com/84744335/134546040-b61752c6-8218-4554-b255-b26bd9249f5d.png)
 
-**Better typing.**
+PBR test scene:
+![image](https://user-images.githubusercontent.com/84744335/134546239-ae93ddfa-c602-4a05-ad89-de2cb3a2f13c.png)
 
-**Better interfaces.** 
+Damaged Helmet with PBR pipeline (metallic/roughness, emissivity, normal mapping, ambient occlusion).
+![image](https://user-images.githubusercontent.com/84744335/134546119-9f0657eb-e93d-43c1-8912-9494c8bf6290.png)
 
-**GLSL types.** 
+Sponza scene with PBR pipeline:
+![image](https://user-images.githubusercontent.com/84744335/134546077-153f1510-33e1-4e7c-92be-184b5bd985c0.png)
 
-**Utilitaties.** 
+Computation of normals with Laplacian approximation:
+![image](https://user-images.githubusercontent.com/84744335/134546328-603c2189-b8da-46e1-912c-5d2af42a5033.png)
 
-**Use what you want.**
+TODO: Add a video cuz you can take a screenshot of an animation.
 
-# Screenshots
+## Projects
 
-TODO: screenshots of the engine. Maybe a video as well.
+Another project of mine: [id3d](https://github.com/the-last-willy/id3d).
