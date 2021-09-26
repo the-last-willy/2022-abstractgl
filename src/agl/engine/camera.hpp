@@ -1,5 +1,7 @@
 #pragma once
 
+#include "camera/orthographic_projection.hpp"
+
 #include "agl/engine/scene/view.hpp"
 
 #include <agl/all.hpp>
@@ -11,10 +13,6 @@
 #include <variant>
 
 namespace eng {
-
-struct OrthographicProjection {
-    
-};
 
 struct PerspectiveProjection {
     float aspect_ratio = 1.f;
@@ -52,17 +50,17 @@ auto transform(const PerspectiveProjection& op) {
 }
 
 struct Camera {
-    // agl::Mat4 transform = mat4(agl::identity);
-
     agl::engine::View view;
 
-    std::variant<OrthographicProjection, PerspectiveProjection> projection
+    std::variant<agl::engine::OrthographicProjection, PerspectiveProjection> projection
     = PerspectiveProjection();
 };
 
 inline
 auto transform(const Camera& c) {
-    if(auto pp = std::get_if<PerspectiveProjection>(&c.projection)) {
+    if(auto op = std::get_if<PerspectiveProjection>(&c.projection)) {
+        return transform(*op) * transform(c.view);
+    } else if(auto pp = std::get_if<PerspectiveProjection>(&c.projection)) {
         return transform(*pp) * transform(c.view);
     }
     throw std::runtime_error("NOT IMPLEMENTED.");
