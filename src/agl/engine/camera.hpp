@@ -58,7 +58,7 @@ struct Camera {
 
 inline
 auto transform(const Camera& c) {
-    if(auto op = std::get_if<PerspectiveProjection>(&c.projection)) {
+    if(auto op = std::get_if<agl::engine::OrthographicProjection>(&c.projection)) {
         return transform(*op) * transform(c.view);
     } else if(auto pp = std::get_if<PerspectiveProjection>(&c.projection)) {
         return transform(*pp) * transform(c.view);
