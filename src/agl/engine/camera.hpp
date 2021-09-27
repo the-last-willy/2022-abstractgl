@@ -56,6 +56,7 @@ struct Camera {
     = PerspectiveProjection();
 };
 
+// REMOVE THAT ONE.
 inline
 auto transform(const Camera& c) {
     if(auto op = std::get_if<agl::engine::OrthographicProjection>(&c.projection)) {

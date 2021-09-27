@@ -8,7 +8,6 @@
 namespace eng {
 
 struct Mesh {
-    // sstd::string name = "mesh";
     std::deque<std::shared_ptr<Primitive>> primitives = {};
 
     agl::Vec3 bb_min;
