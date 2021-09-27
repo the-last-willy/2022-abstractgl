@@ -85,7 +85,6 @@ void load_shapes(
                 static_cast<GLsizei>(3 * size(indices)));
         }
         
-        
         // OLD WAY.
         // { // Load primitive.
         //     auto& eng_primitive = *(eng_mesh.primitives.emplace_back(
@@ -162,6 +161,40 @@ void load_shapes(
         //             static_cast<GLsizei>(size(mesh.indices)));
         //     }
         // }
+    }
+    // Compute bounding boxes.
+    for(std::size_t s = 0; s < size(shapes); ++s) {
+        auto& mesh = shapes[s].mesh;
+        auto& eng_mesh = content.meshes[s];
+        auto& bb_min = eng_mesh->bb_min;
+        auto& bb_max = eng_mesh->bb_max;
+        {
+            bb_min = bb_max = agl::vec3(
+                attrib.vertices[3 * mesh.indices[0].vertex_index + 0],
+                attrib.vertices[3 * mesh.indices[0].vertex_index + 1],
+                attrib.vertices[3 * mesh.indices[0].vertex_index + 2]);
+        }
+        for(std::size_t i = 1; i < size(mesh.indices); ++i) {
+            auto v = agl::vec3(
+                attrib.vertices[3 * mesh.indices[i].vertex_index + 0],
+                attrib.vertices[3 * mesh.indices[i].vertex_index + 1],
+                attrib.vertices[3 * mesh.indices[i].vertex_index + 2]);
+            if(v[0] < bb_min[0]) {
+                bb_min[0] = v[0];
+            } else if(v[0] > bb_max[0]) {
+                bb_max[0] = v[0];
+            }
+            if(v[1] < bb_min[1]) {
+                bb_min[1] = v[1];
+            } else if(v[1] > bb_max[1]) {
+                bb_max[1] = v[1];
+            }
+            if(v[2] < bb_min[2]) {
+                bb_min[2] = v[2];
+            } else if(v[2] > bb_max[2]) {
+                bb_max[2] = v[2];
+            }
+        }
     }
 }
 
