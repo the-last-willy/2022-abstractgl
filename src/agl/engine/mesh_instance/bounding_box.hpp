@@ -11,14 +11,8 @@ namespace agl::engine {
 
 inline
 BoundingBox bounding_box(const MeshInstance& mi) {
-    auto it = mi.uniforms.find("mvp_transform");
-    if(it != end(mi.uniforms)) {
-        auto& t = dynamic_cast<const eng::Uniform<agl::Mat4>&>(*it->second);
-        auto& m = mesh(mi);
-        return BoundingBox(m.bb_min, m.bb_max, eng::Transform(t.value));
-    } else {
-        throw std::logic_error("Missing mesh instance transform.");
-    }
+    auto m = agl::mat4(agl::identity);
+    return BoundingBox(mi.mesh->bb_min, mi.mesh->bb_max, eng::Transform(m));
 }
 
 }
