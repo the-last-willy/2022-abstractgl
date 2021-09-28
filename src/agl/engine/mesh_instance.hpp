@@ -9,6 +9,10 @@
 namespace eng {
 
 struct MeshInstance {
+    // MeshInstance(const std::shared_ptr<Mesh>& m)
+    //     : mesh(m)
+    // {}
+
     std::shared_ptr<Mesh> mesh;
 
     std::map<std::string, AnyUniform> uniforms;

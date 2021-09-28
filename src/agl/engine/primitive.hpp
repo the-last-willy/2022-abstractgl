@@ -22,8 +22,8 @@ struct Primitive {
 
     agl::DrawMode draw_mode = agl::DrawMode::triangles;
     agl::DrawType draw_type;
-    std::size_t offset = 0;
     
+    std::size_t offset = 0;
     agl::Count<GLsizei> primitive_count = agl::Count<GLsizei>(0);
 };
 
