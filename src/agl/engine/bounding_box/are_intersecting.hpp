@@ -24,7 +24,7 @@ bool are_intersecting(const BoundingBox& bb0, const BoundingBox bb1) {
             counts[5] += nh[2] > bb0.max[2];
         }
         for(auto c : counts) {
-            if(c == 6) {
+            if(c == 8) {
                 return false;
             }
         }
@@ -46,7 +46,7 @@ bool are_intersecting(const BoundingBox& bb0, const BoundingBox bb1) {
             counts[5] += nh[2] > bb1.max[2];
         }
         for(auto c : counts) {
-            if(c == 6) {
+            if(c == 8) {
                 return false;
             }
         }
