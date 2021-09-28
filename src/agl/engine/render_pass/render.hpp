@@ -20,6 +20,10 @@ void render(const RenderPass& rp) {
     }
     { // Draw calls.
         for(auto& s : rp.subscriptions) {
+            // TEMPORARY. DO SOMETHING BETTER.
+            if(not s.mesh->enabled) {
+                continue;
+            }
             upload_to(*s.mesh, program(rp));
             for(std::size_t i = 0; i < size(s.vertex_arrays); ++i) {
                 if(primitive(*s.mesh, i).material) {
