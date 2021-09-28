@@ -5,7 +5,7 @@
 namespace agl::engine {
 
 inline
-auto world_to_view_transform(const eng::Camera& c) {
+auto eye_to_world(const eng::Camera& c) {
     return transform(c.view);
 }
 
