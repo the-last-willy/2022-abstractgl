@@ -11,7 +11,7 @@ std::string string(const std::filesystem::path& p) {
     auto ifs = std::ifstream(p);
     if(ifs.fail()) {
         throw std::runtime_error(
-            std::string("Failed to openg file \"") + p.string() + "\".");
+            std::string("Failed to open file \"") + p.string() + "\".");
     }
     return std::string(
         std::istreambuf_iterator<char>(ifs),
