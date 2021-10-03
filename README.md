@@ -6,8 +6,8 @@ I'm aware of how immeasurably ambitious this projects might appears.
 However, I'm not trying to rivalize with anybody.
 It's meant to be used in my other projects (as I don't want to redo things between projects) and it grows depending on the requirements of these.
 
-If you like anything you see, you can just blatantly steal it as it licenced under MIT ;)
-But it would be greatly appreciated if you chose to contribute instead.
+If you like anything you see, you can just blatantly steal it as it is licenced under MIT ;)
+But it would be greatly appreciated if you choose to contribute instead.
 
 Many modules are independent.
 You need only to include what you wish to use.
@@ -83,9 +83,22 @@ Such as:
 - #include directive
 - That's it... As of now.
 
+Automatic generation GLSL code tools (based on this module) are currently being developped under another project.
+They will me merged here eventually.
+That includes:
+- Symbolic representation of GLSL code
+- Symbolic optimization
+- Higher level features (higher order functions)
+
+## Long-term goals
+
+GLSL can be made modular and much more powerful.
+This module will become one of the main focuses.
+
 ## TODO
 
 - Distinguish from the engine module
+- Move it into its own project
 
 # Maths module
 
