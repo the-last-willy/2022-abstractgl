@@ -22,6 +22,11 @@ struct Vec {
     }
 
     constexpr
+    auto xy() const {
+        return Vec<T, 2>{elements[0], elements[1]};
+    }
+
+    constexpr
     auto xyz() const {
         return Vec<T, 3>{elements[0], elements[1], elements[2]};
     }
