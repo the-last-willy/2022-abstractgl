@@ -22,6 +22,7 @@ auto accessor(const std::span<S>& s) {
     }
     { // Fill accessor.
         accessor.component_count = agl::Size<GLint>(static_cast<GLint>(size(s)));
+        accessor.count = size(s);
         accessor.normalized = agl::Normalized(false);
         // HARDCODED, DO SOMETHING BETTER.
         if(typeid(S) == typeid(agl::Vec<float, 2>)) {
