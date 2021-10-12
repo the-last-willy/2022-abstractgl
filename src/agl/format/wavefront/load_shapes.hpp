@@ -89,12 +89,16 @@ void load_shapes(
                     break;
                 }
             }
+            if(not empty(normals)) {
             eng_primitive.attributes["vn"] = agl::engine::accessor(
                 std::span(normals));
+            }
             eng_primitive.attributes["v"] = agl::engine::accessor(
                 std::span(positions));
-            eng_primitive.attributes["vt"] = agl::engine::accessor(
-                std::span(texcoords));
+            if(not empty(texcoords)) {
+                eng_primitive.attributes["vt"] = agl::engine::accessor(
+                    std::span(texcoords));
+            }
             eng_primitive.draw_type = agl::DrawType::unsigned_int;
             eng_primitive.indices = agl::engine::accessor(
                 std::span(indices));

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "load_geometry.hpp"
 #include "load_materials.hpp"
 #include "load_shapes.hpp"
 

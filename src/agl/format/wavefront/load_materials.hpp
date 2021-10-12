@@ -20,9 +20,12 @@ void load_materials(
         auto& eng_material = *(content.materials[i]
             = std::make_shared<eng::Material>());
         { // Kd/map_Kd.
-            eng_material.textures["map_Kd"]
-            = std::make_shared<eng::Texture>(
-                load_texture((mtl_path.string() + material.diffuse_texname).c_str(), 4));
+            if(not empty(material.diffuse_texname)) {
+                eng_material.textures["map_Kd"]
+                = std::make_shared<eng::Texture>(
+                    load_texture((mtl_path.string() + material.diffuse_texname).c_str(), 4));
+            }
+            
             eng_material.uniforms["Kd"]
             = new eng::Uniform<agl::Vec3>(agl::vec3(
                 material.diffuse[0],
