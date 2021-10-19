@@ -10,11 +10,23 @@ namespace agl::engine {
 struct TriangleMesh {
     std::vector<uint32_t> indices;
 
+    uint32_t vertex_per_face = 3;
+
     std::vector<uint32_t> material_ids;
     std::vector<agl::Vec3> normals;
     std::vector<agl::Vec3> positions;
     std::vector<agl::Vec2> texcoords;
 };
+
+inline
+uint32_t vertex_count(const TriangleMesh& tm) {
+    return static_cast<uint32_t>(size(tm.indices));
+}
+
+inline
+uint32_t face_count(const TriangleMesh& tm) {
+    return static_cast<uint32_t>(size(tm.indices) / tm.vertex_per_face);
+}
 
 struct VertexProxy {
     TriangleMesh* mesh;
@@ -43,7 +55,7 @@ TriangleProxy triangle(TriangleMesh& m, uint32_t i) {
 
 inline
 VertexProxy vertex(TriangleProxy tp, uint32_t i) {
-    return vertex(*tp.mesh, tp.mesh->indices[3 * tp.index + i]);
+    return vertex(*tp.mesh, tp.mesh->indices[tp.mesh->vertex_per_face * tp.index + i]);
 }
 
 struct Ray {
@@ -54,6 +66,7 @@ struct Ray {
 struct Hit {
     float ray;
     std::array<float, 3> triangle;
+    agl::Vec3 position;
 };
 
 inline
@@ -77,7 +90,7 @@ std::optional<Hit> intersection(const Ray& r, TriangleProxy tp) {
     auto t = dot(e2, qvec) * inv_det;
     if(t < 0) return std::nullopt;
     
-    return Hit(t, {u, v, 1.f - u - v});
+    return Hit(t, {u, v, 1.f - u - v}, r.position + t * r.direction);
 }
 
 }
