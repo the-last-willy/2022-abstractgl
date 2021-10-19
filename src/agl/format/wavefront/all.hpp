@@ -49,6 +49,7 @@ Content load(
 
     auto content = Content();
 
+    load_geometry(content, reader);
     load_materials(content, reader, mtl_path);
     load_shapes(content, reader);
 

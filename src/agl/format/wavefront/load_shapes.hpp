@@ -171,8 +171,8 @@ void load_shapes(
                                 attrib.texcoords[2*size_t(idx.texcoord_index)+1]));
                         }
 
-                        indices.push_back(size(vertex_indices));
-                        vertex_indices[vidx] = size(vertex_indices);
+                        indices.push_back(static_cast<uint32_t>(size(vertex_indices)));
+                        vertex_indices[vidx] = static_cast<uint32_t>(size(vertex_indices));
                     } else {
                         indices.push_back(it->second);
                     }

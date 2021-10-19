@@ -1,5 +1,8 @@
 #pragma once
 
+#include "content.hpp"
+
+#include "agl/engine/triangle_mesh/all.hpp"
 #include "agl/geometry/all.hpp"
 
 #include <tiny_obj_loader.h>
@@ -11,10 +14,10 @@
 namespace agl::format::wavefront {
 
 inline
-agl::mesh::triangle::Mesh load_geometry(
+agl::engine::TriangleMesh load_geometry(
     const tinyobj::ObjReader& obj)
 {
-    auto m = agl::mesh::triangle::Mesh();
+    auto m = agl::engine::TriangleMesh();
 
     auto& attrib = obj.GetAttrib();
     auto& shapes = obj.GetShapes();
@@ -28,11 +31,13 @@ agl::mesh::triangle::Mesh load_geometry(
 
             // Loop over vertices in the face.
             for (size_t v = 0; v < fv; v++) {
-                m.indices.push_back(size(m.indices));
+                m.indices.push_back(static_cast<uint32_t>(size(m.indices)));
 
                 // access to vertex
                 tinyobj::index_t idx = shapes[s].mesh.indices[index_offset + v];
-                
+
+                m.material_ids.push_back(shapes[s].mesh.material_ids[f]);
+
                 m.positions.push_back(agl::vec3(
                     attrib.vertices[3*size_t(idx.vertex_index)+0],
                     attrib.vertices[3*size_t(idx.vertex_index)+1],
@@ -64,7 +69,7 @@ agl::mesh::triangle::Mesh load_geometry(
 }
 
 inline
-agl::mesh::triangle::Mesh load_geometry(
+agl::engine::TriangleMesh load_geometry(
     const std::filesystem::path& file_path)
 {
     tinyobj::ObjReaderConfig reader_config;
@@ -83,6 +88,16 @@ agl::mesh::triangle::Mesh load_geometry(
     }
 
     return load_geometry(reader);
+}
+
+inline
+void load_geometry(
+    Content& content,
+    const tinyobj::ObjReader& obj)
+{
+    auto g = load_geometry(obj);
+    content.tmeshes.push_back(
+        std::make_shared<agl::engine::TriangleMesh>(std::move(g)));
 }
 
 }
