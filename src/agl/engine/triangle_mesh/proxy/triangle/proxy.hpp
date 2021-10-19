@@ -4,6 +4,8 @@
 
 namespace agl::engine {
 
+// RENAME INTO FACE INSTEAD
+
 struct MutableTriangleProxy {
     MutableTriangleProxy(TriangleMesh& tm, uint32_t i) 
         : mesh(&tm)
