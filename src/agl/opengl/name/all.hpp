@@ -4,6 +4,8 @@
 
 #include "agl/common/scoped.hpp"
 
+#include <iostream>
+
 namespace agl {
 
 template<typename Type>
@@ -19,10 +21,32 @@ struct Name {
     constexpr
     Name(None) noexcept {}
 
-    constexpr explicit
+    explicit
     Name(GLuint id) noexcept
         : id(id)
     {}
+
+    
+    Name(const Name&) noexcept = default;
+
+    
+    Name(Name&& n) {
+        id = n.id;
+        n.id = 0;
+    }
+
+    constexpr
+    ~Name() {}
+
+    constexpr
+    Name& operator=(const Name&) = default;
+
+    constexpr
+    Name& operator=(Name&& n) noexcept {
+        id = n.id;
+        n.id = 0;
+        return *this;
+    }
 
     constexpr
     operator bool() const noexcept {
@@ -57,7 +81,7 @@ struct FramebufferTraits {
 
 using Framebuffer = Name<FramebufferTraits>;
 
-constexpr auto default_framebuffer = Framebuffer(0);
+auto default_framebuffer = Framebuffer(0);
 
 ////////////////////////////////////////////////////////////////////////////////
 // Program.
