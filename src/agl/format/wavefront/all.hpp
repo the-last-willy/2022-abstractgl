@@ -17,13 +17,6 @@
 
 namespace agl::format::wavefront {
 
-struct Wavefront {
-    tinyobj::attrib_t attrib;
-
-    std::vector<tinyobj::shape_t> shapes;
-    std::vector<tinyobj::material_t> materials;
-};
-
 inline
 Content load(
     const std::filesystem::path& obj_path,
@@ -51,6 +44,12 @@ Content load(
 
     load_geometry(content, reader);
     load_materials(content, reader, mtl_path);
+
+    // READ DIRECTLY THE MESH ON GPU.
+    // BUT WE MIGHT ALSO WANT TO HAVE IT ON CPU
+    // SO NO NEED TO GET IT ON GPU DIRECTLY (UNLESS WE DON'T WANT GPU
+    // WHICH WE MOST CERTAINLY WANT)
+    // THINK MORE ABOUT THIS
     load_shapes(content, reader);
 
     return content;
