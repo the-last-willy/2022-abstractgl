@@ -13,6 +13,12 @@
 namespace agl::engine {
 
 struct RenderPassSubscription {
+    ~RenderPassSubscription() {
+        for(auto&& va : vertex_arrays) {
+            delete_(va);
+        }
+    }
+
     std::shared_ptr<MeshInstance> mesh;
 
     std::vector<agl::VertexArray> vertex_arrays;
