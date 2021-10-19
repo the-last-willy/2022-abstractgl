@@ -1,9 +1,9 @@
 #pragma once
 
-#include "camera.hpp"
 #include "mesh.hpp"
 #include "transform.hpp"
 
+#include "agl/engine/camera/camera.hpp"
 #include "agl/engine/mesh_instance/mesh_instance.hpp"
 
 #include <agl/all.hpp>

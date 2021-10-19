@@ -1,6 +1,6 @@
 #pragma once
 
-#include "agl/engine/camera.hpp"
+#include "camera.hpp"
 #include "eye_to_clip.hpp"
 #include "world_to_eye.hpp"
 

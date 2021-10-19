@@ -1,6 +1,6 @@
 #pragma once
 
-#include "agl/engine/camera.hpp"
+#include "camera.hpp"
 #include "world_to_clip.hpp"
 
 #include "agl/engine/bounding_box/bounding_box.hpp"

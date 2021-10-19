@@ -1,6 +1,6 @@
 #pragma once
 
-#include "agl/engine/camera.hpp"
+#include "camera.hpp"
 
 namespace agl::engine {
 
