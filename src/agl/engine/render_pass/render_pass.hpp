@@ -13,6 +13,12 @@
 namespace agl::engine {
 
 struct RenderPassSubscription {
+    RenderPassSubscription() = default;
+
+    RenderPassSubscription(const RenderPassSubscription&) = delete;
+
+    RenderPassSubscription(RenderPassSubscription&&) = default;
+
     ~RenderPassSubscription() {
         for(auto&& va : vertex_arrays) {
             delete_(va);
