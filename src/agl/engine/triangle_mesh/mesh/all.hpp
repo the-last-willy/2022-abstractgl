@@ -6,6 +6,16 @@
 namespace agl::engine {
 
 inline
+const Geometry& geometry(const TriangleMesh& tm) {
+    return tm.geometry;
+}
+
+inline
+Geometry& geometry(TriangleMesh& tm) {
+    return tm.geometry;
+}
+
+inline
 const Topology& topology(const TriangleMesh& tm) {
     return tm.topology;
 }
@@ -17,15 +27,12 @@ Topology& topology(TriangleMesh& tm) {
 
 inline
 uint32_t vertex_count(const TriangleMesh& tm) {
-    // return vertex_count(topology(tm));
-    return static_cast<uint32_t>(size(tm.indices));
+    return vertex_count(topology(tm));
 }
 
 inline
 uint32_t face_count(const TriangleMesh& tm) {
-    // return face_count(topology(tm));
-    return static_cast<uint32_t>(size(tm.indices) / tm.vertex_per_face);
-
+    return face_count(topology(tm));
 }
 
 inline

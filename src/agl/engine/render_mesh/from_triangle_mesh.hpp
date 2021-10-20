@@ -18,33 +18,33 @@ auto render_mesh(agl::engine::TriangleMesh& tm, std::vector<std::shared_ptr<eng:
         {
             p.draw_type = agl::DrawType::unsigned_int;
 
-            if(tm.vertex_per_face == 3) {
+            if(topology(tm).vertex_per_face == 3) {
                 p.draw_mode = agl::DrawMode::triangles;
-            } else if(tm.vertex_per_face == 1) {
+            } else if(topology(tm).vertex_per_face == 1) {
                 p.draw_mode = agl::DrawMode::points;
             }
             
             p.primitive_count = agl::Count<GLsizei>(
-                static_cast<GLsizei>(size(tm.indices)));
-            if(not empty(tm.positions)) {
-                p.attributes["v"] = accessor(std::span(tm.positions));
+                static_cast<GLsizei>(size(topology(tm).face_indices)));
+            if(not empty(geometry(tm).vertex_positions)) {
+                p.attributes["v"] = accessor(std::span(geometry(tm).vertex_positions));
             }
         }
 
         auto material_group = uint32_t(0);
-        if(not empty(tm.material_ids)) {
-            material_group = tm.material_ids[i];
+        if(not empty(geometry(tm).vertex_material_ids)) {
+            material_group = geometry(tm).vertex_material_ids[i];
             p.material = materials[material_group];
         }
         
 
         for(; i < vertex_count(tm); ++i) {
-            if(not empty(tm.material_ids)) {
-                if(material_group != tm.material_ids[i]) {
+            if(not empty(geometry(tm).vertex_material_ids)) {
+                if(material_group != geometry(tm).vertex_material_ids[i]) {
                     break;
                 }
             }
-            indices.push_back(tm.indices[i]);
+            indices.push_back(topology(tm).face_indices[i]);
         }
         p.indices = accessor(std::span(indices));
         indices.clear();
