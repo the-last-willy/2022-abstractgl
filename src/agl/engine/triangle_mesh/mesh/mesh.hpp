@@ -1,13 +1,9 @@
 #pragma once
 
 #include "geometry/all.hpp"
+#include "topology/mesh/mesh.hpp"
 
-#include "topology/all.hpp"
-
-#include "agl/opengl/all.hpp"
-
-#include <optional>
-#include <vector>
+#include <agl/opengl/all.hpp>
 
 namespace agl::engine {
 

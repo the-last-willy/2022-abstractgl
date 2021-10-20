@@ -1,22 +1,15 @@
 #pragma once
 
 #include "proxy/all.hpp"
-#include "create_triangle.hpp"
+#include "topology/mesh/face_count.hpp"
+#include "topology/mesh/vertex_count.hpp"
+#include "create_face.hpp"
 #include "create_vertex.hpp"
 #include "geometry.hpp"
 #include "mesh.hpp"
+#include "topology.hpp"
 
 namespace agl::engine {
-
-inline
-const Topology& topology(const TriangleMesh& tm) {
-    return tm.topology;
-}
-
-inline
-Topology& topology(TriangleMesh& tm) {
-    return tm.topology;
-}
 
 inline
 uint32_t vertex_count(const TriangleMesh& tm) {
@@ -29,13 +22,23 @@ uint32_t face_count(const TriangleMesh& tm) {
 }
 
 inline
-ConstTriangleProxy triangle(const TriangleMesh& m, uint32_t i) {
-    return ConstTriangleProxy(m, i);
+ConstFaceProxy face(const TriangleMesh& m, uint32_t i) {
+    return ConstFaceProxy(m, i);
 }
 
 inline
-MutableTriangleProxy triangle(TriangleMesh& m, uint32_t i) {
-    return MutableTriangleProxy(m, i);
+MutableFaceProxy face(TriangleMesh& m, uint32_t i) {
+    return MutableFaceProxy(m, i);
+}
+
+inline
+ConstVertexProxy vertex(const TriangleMesh& m, uint32_t i) {
+    return ConstVertexProxy(m, i);
+}
+
+inline
+MutableVertexProxy vertex(TriangleMesh& m, uint32_t i) {
+    return MutableVertexProxy(m, i);
 }
 
 struct Ray {
@@ -50,15 +53,15 @@ struct Hit {
 };
 
 inline
-std::optional<Hit> intersection(const Ray& r, ConstTriangleProxy ctp) {
-    auto e1 = position(vertex(ctp, 1)) - position(vertex(ctp, 0));
-    auto e2 = position(vertex(ctp, 2)) - position(vertex(ctp, 0));
+std::optional<Hit> intersection(const Ray& r, ConstFaceProxy ctp) {
+    auto e1 = position(incident_vertex(ctp, 1)) - position(incident_vertex(ctp, 0));
+    auto e2 = position(incident_vertex(ctp, 2)) - position(incident_vertex(ctp, 0));
 
     auto pvec = cross(r.direction, e2);
     auto det = dot(e1, pvec);
     
     auto inv_det = 1 / det;
-    auto tvec = r.position - position(vertex(ctp, 0));
+    auto tvec = r.position - position(incident_vertex(ctp, 0));
     
     auto u = dot(tvec, pvec) * inv_det;
     if(u < 0 || u > 1) return std::nullopt;

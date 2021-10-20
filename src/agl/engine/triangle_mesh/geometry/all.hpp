@@ -11,7 +11,7 @@ uint32_t vertex_count(const Geometry& g) {
 
 inline
 uint32_t create_vertex(Geometry& g) {
-    g.vertex_material_ids.emplace_back();
+    g.vertex_material_ids.emplace_back(0);
     g.vertex_normals.emplace_back();
     g.vertex_positions.emplace_back();
     g.vertex_texcoords.emplace_back();
