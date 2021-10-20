@@ -12,6 +12,12 @@
 namespace eng {
 
 struct Accessor {
+    Accessor() = default;
+
+    // Accessor(const Accessor&&) = delete;
+
+    // Accessor(Accessor&&) = default;
+
     std::size_t count = 0;
 
     agl::Offset<GLuint> byte_offset = agl::Offset<GLuint>(0);
