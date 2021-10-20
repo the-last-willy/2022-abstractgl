@@ -9,6 +9,7 @@
 
 namespace agl::engine {
 
+// BIG MEMORY LEAK AROUND HERE
 inline
 auto render_mesh(agl::engine::TriangleMesh& tm, std::vector<std::shared_ptr<eng::Material>> materials = {}) {
     auto m = eng::Mesh();
