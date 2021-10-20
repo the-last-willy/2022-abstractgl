@@ -1,19 +1,12 @@
 #pragma once
 
 #include "proxy/all.hpp"
+#include "create_triangle.hpp"
+#include "create_vertex.hpp"
+#include "geometry.hpp"
 #include "mesh.hpp"
 
 namespace agl::engine {
-
-inline
-const Geometry& geometry(const TriangleMesh& tm) {
-    return tm.geometry;
-}
-
-inline
-Geometry& geometry(TriangleMesh& tm) {
-    return tm.geometry;
-}
 
 inline
 const Topology& topology(const TriangleMesh& tm) {
@@ -43,13 +36,6 @@ ConstTriangleProxy triangle(const TriangleMesh& m, uint32_t i) {
 inline
 MutableTriangleProxy triangle(TriangleMesh& m, uint32_t i) {
     return MutableTriangleProxy(m, i);
-}
-
-inline
-ConstVertexProxy create_vertex(TriangleMesh& m) {
-    return ConstVertexProxy(
-        m,
-        create_vertex(m.geometry));
 }
 
 struct Ray {
