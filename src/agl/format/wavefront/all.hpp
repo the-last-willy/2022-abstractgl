@@ -42,7 +42,7 @@ Content load(
 
     auto content = Content();
 
-    load_geometry(content, reader);
+    // load_geometry(content, reader);
     load_materials(content, reader, mtl_path);
 
     // READ DIRECTLY THE MESH ON GPU.
