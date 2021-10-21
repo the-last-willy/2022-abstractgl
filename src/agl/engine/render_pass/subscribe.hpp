@@ -11,8 +11,8 @@ namespace agl::engine {
 inline
 void subscribe(RenderPass& rp, const eng::Primitive& pi, VertexArray va) {
     auto& po = program(rp);
-    if(pi.indices.buffer) {
-        element_buffer(va, pi.indices.buffer->opengl);
+    if(pi.indices->buffer) {
+        element_buffer(va, pi.indices->buffer->opengl);
     }
     for(int i = 0; i < agl::active_attributes(po.program); ++i) {
         auto aa = agl::active_attrib(po.program, agl::AttributeIndex(i));
@@ -21,7 +21,7 @@ void subscribe(RenderPass& rp, const eng::Primitive& pi, VertexArray va) {
         attribute_binding(va, ai, bi);
         auto it = pi.attributes.find(aa.name);
         if(it != end(pi.attributes)) {
-            auto& accessor = it->second;
+            auto& accessor = *it->second;
             attribute_format(
                 va, ai,
                 accessor.component_count,

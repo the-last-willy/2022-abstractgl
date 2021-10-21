@@ -5,7 +5,7 @@
 #include "program.hpp"
 #include "uniform.hpp"
 
-#include <agl/all.hpp>
+#include <agl/opengl/all.hpp>
 
 #include <memory>
 #include <vector>
@@ -25,8 +25,8 @@ struct RenderPass {
 
 inline
 void configure(agl::VertexArray va, const Primitive& pi, const Program& po) {
-    if(pi.indices.buffer) {
-        element_buffer(va, pi.indices.buffer->opengl);
+    if(pi.indices->buffer) {
+        element_buffer(va, pi.indices->buffer->opengl);
     }
     for(int i = 0; i < agl::active_attributes(po.program); ++i) {
         auto aa = agl::active_attrib(po.program, agl::AttributeIndex(i));
@@ -35,7 +35,7 @@ void configure(agl::VertexArray va, const Primitive& pi, const Program& po) {
         attribute_binding(va, ai, bi);
         auto it = pi.attributes.find(aa.name);
         if(it != end(pi.attributes)) {
-            auto& accessor = it->second;
+            auto& accessor = *it->second;
             attribute_format(
                 va, ai,
                 accessor.component_count,

@@ -14,7 +14,8 @@ inline
 auto triangle_mesh(agl::engine::TriangleMesh& tm, std::vector<std::shared_ptr<eng::Material>>& materials) {
     auto m = eng::Mesh();
     auto indices = std::vector<uint32_t>();
-    auto positions = accessor(std::span(geometry(tm).vertex_positions));
+    auto positions = std::make_shared<eng::Accessor>(
+        accessor(std::span(geometry(tm).vertex_positions)));
     for(uint32_t f = 0; f < face_count(tm);) {
         auto& p = *m.primitives.emplace_back(std::make_shared<eng::Primitive>());
         {
@@ -41,43 +42,17 @@ auto triangle_mesh(agl::engine::TriangleMesh& tm, std::vector<std::shared_ptr<en
 
         label:
 
-        std::cout << "Primitive " << material_group << ": ";
-        for(auto&& i : indices) {
-            std::cout << i << " ";
-        }
-        std::cout << std::endl;
+        // std::cout << "Primitive " << material_group << ": ";
+        // for(auto&& i : indices) {
+        //     std::cout << i << " ";
+        // }
+        // std::cout << std::endl;
 
-        p.indices = accessor(std::span(indices));
+        p.indices = std::make_shared<eng::Accessor>(accessor(std::span(indices)));
         p.primitive_count = agl::Count<GLsizei>(
             static_cast<GLsizei>(size(indices)));
         indices.clear();
     }
-    // for(uint32_t i = 0; i < vertex_count(tm);) {
-    //     auto& p = *m.primitives.emplace_back(std::make_shared<eng::Primitive>());
-    //     {
-    //         p.attributes["v"] = accessor(std::span(geometry(tm).vertex_positions));
-    //         p.draw_mode = agl::DrawMode::triangles;
-    //         p.draw_type = agl::DrawType::unsigned_int;
-    //     }
-
-    //     auto material_group = uint32_t(0);
-    //     if(not empty(geometry(tm).vertex_material_ids)) {
-    //         material_group = geometry(tm).vertex_material_ids[i];
-    //         p.material = materials[material_group];
-    //     }
-
-    //     for(; i < vertex_count(tm); ++i) {
-    //         if(not empty(geometry(tm).vertex_material_ids)) {
-    //             if(material_group != geometry(tm).vertex_material_ids[i]) {
-    //                 break;
-    //             }
-    //         }
-    //         indices.push_back(topology(tm).face_indices[i]);
-    //     }
-    //     p.indices = accessor(std::span(indices));
-    //     p.primitive_count = agl::Count<GLsizei>(static_cast<GLsizei>(size(indices)));
-    //     indices.clear();
-    // }
     return m;
 }
 

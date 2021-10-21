@@ -2,7 +2,7 @@
 
 #include "agl/engine/transform.hpp"
 
-#include <agl/all.hpp>
+#include <agl/opengl/all.hpp>
 
 namespace agl::engine {
 

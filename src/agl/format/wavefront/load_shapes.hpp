@@ -180,57 +180,22 @@ void load_shapes(
                 index_offset += fv;
             }
             if(not empty(normals)) {
-                eng_primitive.attributes["vn"] = agl::engine::accessor(
-                    std::span(normals));
+                eng_primitive.attributes["vn"] = std::make_shared<eng::Accessor>(
+                    agl::engine::accessor(std::span(normals)));
             }
-            eng_primitive.attributes["v"] = agl::engine::accessor(
-                std::span(positions));
+            eng_primitive.attributes["v"] =  std::make_shared<eng::Accessor>(
+                agl::engine::accessor(std::span(positions)));
             if(not empty(texcoords)) {
-                eng_primitive.attributes["vt"] = agl::engine::accessor(
-                    std::span(texcoords));
+                eng_primitive.attributes["vt"] =  std::make_shared<eng::Accessor>(
+                    agl::engine::accessor(std::span(texcoords)));
             }
             eng_primitive.draw_type = agl::DrawType::unsigned_int;
-            eng_primitive.indices = agl::engine::accessor(
-                std::span(indices));
+            eng_primitive.indices =  std::make_shared<eng::Accessor>(
+                agl::engine::accessor(std::span(indices)));
             eng_primitive.primitive_count =  agl::Count<GLsizei>(
                 static_cast<GLsizei>(vertex_count));
         }
     }   
-
-    // Compute bounding boxes.
-    // for(std::size_t s = 0; s < 10; ++s) {
-    //     auto& mesh = shapes[s].mesh;
-    //     auto& eng_mesh = content.meshes[s];
-    //     auto& bb_min = eng_mesh->bb_min;
-    //     auto& bb_max = eng_mesh->bb_max;
-    //     {
-    //         bb_min = bb_max = agl::vec3(
-    //             attrib.vertices[3 * mesh.indices[0].vertex_index + 0],
-    //             attrib.vertices[3 * mesh.indices[0].vertex_index + 1],
-    //             attrib.vertices[3 * mesh.indices[0].vertex_index + 2]);
-    //     }
-    //     for(std::size_t i = 1; i < size(mesh.indices); ++i) {
-    //         auto v = agl::vec3(
-    //             attrib.vertices[3 * mesh.indices[i].vertex_index + 0],
-    //             attrib.vertices[3 * mesh.indices[i].vertex_index + 1],
-    //             attrib.vertices[3 * mesh.indices[i].vertex_index + 2]);
-    //         if(v[0] < bb_min[0]) {
-    //             bb_min[0] = v[0];
-    //         } else if(v[0] > bb_max[0]) {
-    //             bb_max[0] = v[0];
-    //         }
-    //         if(v[1] < bb_min[1]) {
-    //             bb_min[1] = v[1];
-    //         } else if(v[1] > bb_max[1]) {
-    //             bb_max[1] = v[1];
-    //         }
-    //         if(v[2] < bb_min[2]) {
-    //             bb_min[2] = v[2];
-    //         } else if(v[2] > bb_max[2]) {
-    //             bb_max[2] = v[2];
-    //         }
-    //     }
-    // }
 }
 
 }

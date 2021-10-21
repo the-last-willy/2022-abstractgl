@@ -6,7 +6,7 @@
 #include "agl/engine/camera/camera.hpp"
 #include "agl/engine/mesh_instance/mesh_instance.hpp"
 
-#include <agl/all.hpp>
+#include <agl/opengl/all.hpp>
 
 #include <memory>
 #include <optional>

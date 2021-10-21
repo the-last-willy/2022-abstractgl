@@ -5,6 +5,14 @@
 namespace agl::engine {
 
 struct Geometry {
+    // Faces.
+
+    uint32_t face_count = 0;
+
+    std::vector<uint32_t> face_material_ids;
+
+    // Vertices.
+
     uint32_t vertex_count = 0;
 
     std::vector<uint32_t> vertex_material_ids;

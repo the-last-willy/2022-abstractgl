@@ -11,9 +11,11 @@ namespace agl::engine {
 inline
 MutableVertexProxy create_vertex(TriangleMesh& tm) {
     create_vertex(topology(tm));
-    return MutableVertexProxy(
+    auto mvp = MutableVertexProxy(
         tm,
         create_vertex(geometry(tm)));
+
+    return mvp;
 }
 
 }

@@ -3,7 +3,7 @@
 #include "material.hpp"
 #include "texture.hpp"
 
-#include <agl/all.hpp>
+#include <agl/opengl/all.hpp>
 
 #include <map>
 #include <memory>

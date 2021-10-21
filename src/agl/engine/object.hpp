@@ -4,7 +4,7 @@
 #include "material.hpp"
 #include "uniform.hpp"
 
-#include <agl/all.hpp>
+#include <agl/opengl/all.hpp>
 
 #include <iostream>
 #include <memory>

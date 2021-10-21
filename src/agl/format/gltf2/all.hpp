@@ -14,7 +14,7 @@
 namespace format::gltf2 {
 
 struct Content {
-    std::map<int, eng::Accessor> accessors = {};
+    std::map<int, std::shared_ptr<eng::Accessor>> accessors = {};
     std::map<int, std::shared_ptr<eng::Animation>> animations = {};
     std::map<int, std::shared_ptr<eng::Buffer>> buffers = {};
     std::map<int, std::shared_ptr<eng::Camera>> cameras = {};
@@ -42,8 +42,8 @@ void convert_animations(Content& content, tinygltf::Model& model) {
             auto& sampler = animation.samplers[j];
             auto& eng_sampler = *(eng_samplers[static_cast<int>(j)]
             = std::make_shared<eng::AnimationSampler>());
-            eng_sampler.input = content.accessors.at(sampler.input);
-            eng_sampler.output = content.accessors.at(sampler.output);
+            eng_sampler.input = *content.accessors.at(sampler.input);
+            eng_sampler.output = *content.accessors.at(sampler.output);
             if(sampler.interpolation == "CUBICSPLINE") {
                 eng_sampler.interpolation = eng::AnimationSamplerInterpolation::cubic_spline;
             } else if(sampler.interpolation == "LINEAR") {

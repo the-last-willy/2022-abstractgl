@@ -4,7 +4,7 @@
 
 #include "agl/engine/scene/view.hpp"
 
-#include <agl/all.hpp>
+#include <agl/opengl/all.hpp>
 
 #include <cmath>
 #include <memory>
