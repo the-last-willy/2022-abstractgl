@@ -14,11 +14,11 @@ struct Primitive {
     // SHOULDN'T BE IN HERE.
     agl::VertexArray vertex_array = {};
 
-    std::map<std::string, eng::Accessor> attributes = {};
+    std::map<std::string, std::shared_ptr<eng::Accessor>> attributes = {};
 
     std::shared_ptr<Material> material = {};
 
-    eng::Accessor indices = {};
+    std::shared_ptr<eng::Accessor> indices = {};
 
     agl::DrawMode draw_mode = agl::DrawMode::triangles;
     agl::DrawType draw_type;
@@ -53,7 +53,7 @@ void bind(Primitive& p, const Material& m) {
         attribute_binding(p.vertex_array, ai, bi);
         auto it = p.attributes.find(aa.name);
         if(it != end(p.attributes)) {
-            auto& accessor = it->second;
+            auto& accessor = *it->second;
             attribute_format(
                 p.vertex_array, ai,
                 accessor.component_count,
@@ -88,7 +88,7 @@ void unbind(const Primitive& p, const Material& m) {
 
 inline
 void render(const Primitive& p) {
-    if(p.indices.count == 0) {
+    if(p.indices->count == 0) {
         agl::draw_arrays(
             p.draw_mode,
             agl::Offset<GLint>(static_cast<GLint>(p.offset)),
