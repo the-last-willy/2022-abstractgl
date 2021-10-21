@@ -1,3 +1,4 @@
+/*
 #pragma once
 
 #include <agl/common/all.hpp>
@@ -545,3 +546,4 @@ Content load(const std::filesystem::path& p) {
 }
 
 }
+*/
