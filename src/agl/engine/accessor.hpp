@@ -3,7 +3,7 @@
 #include "buffer.hpp"
 #include "buffer_view.hpp"
 
-#include <agl/all.hpp>
+#include <agl/opengl/all.hpp>
 
 #include <memory>
 #include <optional>
@@ -14,9 +14,9 @@ namespace eng {
 struct Accessor {
     Accessor() = default;
 
-    // Accessor(const Accessor&&) = delete;
+    Accessor(const Accessor&&) = delete;
 
-    // Accessor(Accessor&&) = default;
+    Accessor(Accessor&&) = default;
 
     std::size_t count = 0;
 
