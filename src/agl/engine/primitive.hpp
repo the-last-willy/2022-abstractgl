@@ -18,7 +18,7 @@ struct Primitive {
 
     std::shared_ptr<Material> material = {};
 
-    std::shared_ptr<eng::Accessor> indices = {};
+    std::shared_ptr<eng::Accessor> indices = std::make_shared<eng::Accessor>();
 
     agl::DrawMode draw_mode = agl::DrawMode::triangles;
     agl::DrawType draw_type;

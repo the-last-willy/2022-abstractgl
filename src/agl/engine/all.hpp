@@ -17,6 +17,7 @@
 #include "node.hpp"
 #include "node.hpp"
 #include "omni_shadow_map.hpp"
+#include "primitive.hpp"
 #include "program.hpp"
 #include "render_pass.hpp"
 #include "scene.hpp"
