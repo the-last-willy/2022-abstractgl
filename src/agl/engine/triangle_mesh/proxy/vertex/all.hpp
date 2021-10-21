@@ -30,6 +30,16 @@ Geometry& geometry(MutableVertexProxy mvp) {
 }
 
 inline
+agl::Vec3 color(ConstVertexProxy cvp) {
+    return mesh(cvp).geometry.vertex_colors[index(cvp)];
+}
+
+inline
+agl::Vec3& color(MutableVertexProxy mvp) {
+    return mesh(mvp).geometry.vertex_colors[index(mvp)];
+}
+
+inline
 uint32_t material_id(ConstVertexProxy cvp) {
     return mesh(cvp).geometry.vertex_material_ids[index(cvp)];
 }

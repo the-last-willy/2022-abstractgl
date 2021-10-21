@@ -15,12 +15,18 @@ auto point_mesh(agl::engine::TriangleMesh& tm, std::vector<std::shared_ptr<eng::
     (void) materials;
     auto m = eng::Mesh();
     auto indices = std::vector<uint32_t>();
+    auto colors = std::make_shared<eng::Accessor>(
+        accessor(std::span(geometry(tm).vertex_colors)));
+    auto normals = std::make_shared<eng::Accessor>(
+        accessor(std::span(geometry(tm).vertex_normals)));
     auto positions = std::make_shared<eng::Accessor>(
         accessor(std::span(geometry(tm).vertex_positions)));
     for(uint32_t vi = 0; vi < vertex_count(tm);) {
         auto& p = *m.primitives.emplace_back(std::make_shared<eng::Primitive>());
         {
+            p.attributes["color"] = colors;
             p.attributes["v"] = positions;
+            p.attributes["vn"] = normals;
             p.draw_mode = agl::DrawMode::points;
             p.draw_type = agl::DrawType::unsigned_int;
         }
