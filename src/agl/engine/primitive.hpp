@@ -31,6 +31,9 @@ void unbind(const Primitive& p) {
     }
 }
 
+// HEAVILY BROKEN
+// PROBABLY BECAUSE COUNT ISN'T PROPERLY SET IN SOME ACCESSORS.
+/*
 inline
 void render(const Primitive& p) {
     if(p.indices->count == 0) {
@@ -46,6 +49,7 @@ void render(const Primitive& p) {
             agl::Offset<GLintptr>(p.offset));
     }
 }
+*/
 
 inline
 void render(const Primitive& p, agl::VertexArray va) {
