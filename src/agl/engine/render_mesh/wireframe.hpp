@@ -7,31 +7,33 @@
 
 namespace agl::engine {
 
+// CONVERT IT TO ANOTHER FACE MESH INSTEAD ?
+// AND THEN THAT ONE TO A RENDER MESH.
 inline
 eng::Mesh wireframe(const TriangleMesh& tm) {
-    (void) tm;
     auto m = eng::Mesh();
-    // auto& p = *(m.primitives.emplace_back(std::make_shared<eng::Primitive>()));
-    // {
-    //     p.draw_mode = agl::DrawMode::lines;
-    //     p.draw_type = agl::DrawType::unsigned_int;
-    // }
-    // { // Indices.
-    //     if(tm.topology.vertex_per_face == 3) {
-    //         auto indices = std::vector<uint32_t>();
-    //         for(uint32_t fi = 0; fi < face_count(tm); ++fi) {
-    //             auto&& f = triangle(tm, fi);
-    //             for(uint32_t fvi = 0; fvi < vertex_count(f); ++fvi) {
-    //                 indices.push_back(index(vertex(f, fvi)));
-    //             }
-    //         }
-    //         p.indices = agl::engine::accessor(std::span(indices));
-    //         p.primitive_count = agl::Count<GLsizei>(
-    //             static_cast<GLsizei>(size(indices)));
-    //     } else {
-    //         throw std::logic_error("Not implemented");
-    //     }
-    // }
+    auto positions = std::make_shared<eng::Accessor>(
+        agl::engine::accessor(std::span(geometry(tm).vertex_positions)));
+    auto& p = *(m.primitives.emplace_back(std::make_shared<eng::Primitive>()));
+    {
+        p.attributes["v"] = positions;
+        p.draw_mode = agl::DrawMode::lines;
+        p.draw_type = agl::DrawType::unsigned_int;
+    }
+    { // Indices.
+        auto indices = std::vector<unsigned>();
+        for(uint32_t fi = 0; fi < face_count(tm); ++fi) {
+            auto f = face(tm, fi);
+            for(uint32_t i = 0; i < incident_vertex_count(f); ++i) {
+                indices.push_back(index(incident_vertex(f, i)));
+                indices.push_back(index(incident_vertex(f, i + 1)));
+            }
+        }
+        p.indices = std::make_shared<eng::Accessor>(
+            agl::engine::accessor(std::span(indices)));
+        p.primitive_count = agl::Count<GLsizei>(
+            static_cast<GLsizei>(size(indices)));
+    }
     return m;
 }
 
