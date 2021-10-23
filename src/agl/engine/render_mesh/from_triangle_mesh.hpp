@@ -11,7 +11,7 @@ namespace agl::engine {
 
 // BIG MEMORY LEAK AROUND HERE
 inline
-auto triangle_mesh(agl::engine::TriangleMesh& tm, std::vector<std::shared_ptr<eng::Material>>& materials) {
+auto triangle_mesh(const agl::engine::TriangleMesh& tm, const std::vector<std::shared_ptr<eng::Material>>& materials) {
     auto m = eng::Mesh();
     auto indices = std::vector<uint32_t>();
     auto positions = std::make_shared<eng::Accessor>(
