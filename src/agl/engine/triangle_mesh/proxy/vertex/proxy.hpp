@@ -5,8 +5,10 @@
 namespace agl::engine {
 
 struct MutableVertexProxy {
-    TriangleMesh* mesh;
-    uint32_t index;
+    TriangleMesh* mesh = nullptr;
+    uint32_t index = 0;
+
+    MutableVertexProxy() = default;
 
     MutableVertexProxy(TriangleMesh* tm, uint32_t i) 
         : mesh(tm)
@@ -20,8 +22,10 @@ struct MutableVertexProxy {
 };
 
 struct ConstVertexProxy {
-    const TriangleMesh* mesh;
-    uint32_t index;
+    const TriangleMesh* mesh = nullptr;
+    uint32_t index = 0;
+
+    ConstVertexProxy() = default;
 
     ConstVertexProxy(const TriangleMesh* tm, uint32_t i) 
         : mesh(tm)
