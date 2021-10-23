@@ -5,12 +5,12 @@
 namespace agl::engine {
 
 inline
-const Topology& topology(const TriangleMesh& tm) {
+const MeshTopology& topology(const TriangleMesh& tm) {
     return tm.topology;
 }
 
 inline
-Topology& topology(TriangleMesh& tm) {
+MeshTopology& topology(TriangleMesh& tm) {
     return tm.topology;
 }
 

@@ -6,7 +6,7 @@
 
 namespace agl::engine {
 
-struct Topology {
+struct MeshTopology {
     uint32_t vertex_count = 0;
     std::vector<FaceTopology> faces;
 };

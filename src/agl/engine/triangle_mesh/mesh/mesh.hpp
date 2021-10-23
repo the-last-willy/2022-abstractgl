@@ -1,7 +1,7 @@
 #pragma once
 
 #include "geometry/all.hpp"
-#include "topology/mesh/mesh.hpp"
+#include "topology/mesh/topology.hpp"
 
 #include <agl/opengl/all.hpp>
 
@@ -9,7 +9,7 @@ namespace agl::engine {
 
 struct TriangleMesh {
     Geometry geometry;
-    Topology topology = Topology(3);
+    MeshTopology topology;
 };
 
 }
