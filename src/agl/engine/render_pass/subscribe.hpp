@@ -53,11 +53,23 @@ void subscribe(RenderPass& rp, const std::shared_ptr<MeshInstance>& mi) {
 }
 
 inline
+auto& subscribe(RenderPass& rp, MeshInstance&& mi) {
+    auto ptr = std::make_shared<MeshInstance>(std::move(mi));
+    subscribe(rp, ptr);
+    return ptr;
+}
+
+inline
 auto subscribe(RenderPass& rp, const std::shared_ptr<eng::Mesh>& m) {
     auto mi = std::make_shared<MeshInstance>();
     mi->mesh = m;
     subscribe(rp, mi);
     return mi;
+}
+
+inline
+auto subscribe(RenderPass& rp, eng::Mesh&& m) {
+    return subscribe(rp, std::make_shared<eng::Mesh>(std::move(m)));
 }
 
 }
