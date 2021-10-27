@@ -1,5 +1,6 @@
 #pragma once
 
+#include "centroid.hpp"
 #include "incident_vertex_count.hpp"
 #include "incident_vertex.hpp"
 #include "index.hpp"
