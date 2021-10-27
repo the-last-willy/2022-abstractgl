@@ -13,4 +13,9 @@ float dot(Vec<T, N> lv, Vec<T, N> rv) {
     return d;
 }
 
+template<typename T, std::size_t N> constexpr
+float dot(Vec<T, N> v) {
+    return dot(v, v);
+}
+
 }
