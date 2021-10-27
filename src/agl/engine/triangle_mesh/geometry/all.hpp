@@ -17,6 +17,9 @@ uint32_t create_vertex(Geometry& g) {
     g.vertex_positions.emplace_back();
     g.vertex_texcoords.emplace_back();
     g.vertex_count += 1;
+    for(auto& va : g.vertex_attributes) {
+        va.second->resize(g.vertex_count);
+    }
     return g.vertex_count - 1;
 }
 
