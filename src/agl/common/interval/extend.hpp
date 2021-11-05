@@ -11,10 +11,10 @@ void extend(Interval<I...>& i, auto&& arg) {
     auto& lb = lower_bound(i);
     auto& ub = upper_bound(i);
     for(std::size_t j = 0; j < size(lb); ++j) {
-        if(arg < lb[j]) {
-            lb[j] = arg;
-        } else if(arg > ub[j]) {
-            ub[j] = arg;
+        if(arg[j] < lb[j]) {
+            lb[j] = arg[j];
+        } else if(arg[j] > ub[j]) {
+            ub[j] = arg[j];
         }
     }
 }

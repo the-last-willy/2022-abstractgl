@@ -17,4 +17,9 @@ struct Interval {
 template<std::size_t N>
 Interval(Vec<float, N>, Vec<float, N>) -> Interval<N>;
 
+template<typename T>
+auto interval(T t) {
+    return Interval(t, t);
+}
+
 }

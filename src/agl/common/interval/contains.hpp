@@ -7,7 +7,7 @@
 namespace agl::common {
 
 template<auto... I> constexpr
-bool extend(Interval<I...>& i, auto&& arg) {
+bool contains(Interval<I...>& i, auto&& arg) {
     auto& lb = lower_bound(i);
     auto& ub = upper_bound(i);
     for(std::size_t j = 0; j < size(lb); ++j) {
