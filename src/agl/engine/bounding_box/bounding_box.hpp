@@ -2,13 +2,14 @@
 
 #include "agl/engine/transform.hpp"
 
+#include <agl/common/all.hpp>
 #include <agl/opengl/all.hpp>
 
 namespace agl::engine {
 
 struct BoundingBox {
-    agl::Vec3 min;
-    agl::Vec3 max;
+    // Axis aligned bounding box.
+    common::Interval<3> aabb;
 
     eng::Transform transform;
 };
