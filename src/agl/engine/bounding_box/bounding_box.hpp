@@ -11,7 +11,12 @@ struct BoundingBox {
     // Axis aligned bounding box.
     common::Interval<3> aabb;
 
-    eng::Transform transform;
+    eng::Transform transform = agl::mat4(agl::identity);
 };
+
+inline
+BoundingBox bounding_box(agl::Vec3 v) {
+    return BoundingBox({v, v});
+}
 
 }
