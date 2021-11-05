@@ -10,8 +10,8 @@ namespace eng {
 struct Mesh {
     std::deque<std::shared_ptr<Primitive>> primitives = {};
 
-    agl::Vec3 bb_min;
-    agl::Vec3 bb_max;
+    // agl::Vec3 bb_min;
+    // agl::Vec3 bb_max;
 };
 
 }
