@@ -3,32 +3,19 @@
 #include "proxy/all.hpp"
 #include "topology/mesh/face_count.hpp"
 #include "topology/mesh/vertex_count.hpp"
+#include "bounding_box.hpp"
 #include "create_face.hpp"
 #include "create_vertex.hpp"
 #include "geometry.hpp"
 #include "mesh.hpp"
 #include "topology.hpp"
+#include "vertex_count.hpp"
 
 namespace agl::engine {
 
 inline
-uint32_t vertex_count(const TriangleMesh& tm) {
-    return vertex_count(topology(tm));
-}
-
-inline
 uint32_t face_count(const TriangleMesh& tm) {
     return face_count(topology(tm));
-}
-
-inline
-ConstFaceProxy face(const TriangleMesh& m, uint32_t i) {
-    return ConstFaceProxy(m, i);
-}
-
-inline
-MutableFaceProxy face(TriangleMesh& m, uint32_t i) {
-    return MutableFaceProxy(m, i);
 }
 
 inline
