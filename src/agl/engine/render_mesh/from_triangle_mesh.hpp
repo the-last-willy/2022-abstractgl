@@ -42,12 +42,6 @@ auto triangle_mesh(const agl::engine::TriangleMesh& tm, const std::vector<std::s
 
         label:
 
-        // std::cout << "Primitive " << material_group << ": ";
-        // for(auto&& i : indices) {
-        //     std::cout << i << " ";
-        // }
-        // std::cout << std::endl;
-
         p.indices = std::make_shared<eng::Accessor>(accessor(std::span(indices)));
         p.primitive_count = agl::Count<GLsizei>(
             static_cast<GLsizei>(size(indices)));
