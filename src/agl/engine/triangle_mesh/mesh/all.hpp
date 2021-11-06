@@ -14,11 +14,6 @@
 namespace agl::engine {
 
 inline
-uint32_t face_count(const TriangleMesh& tm) {
-    return face_count(topology(tm));
-}
-
-inline
 ConstVertexProxy vertex(const TriangleMesh& m, uint32_t i) {
     return ConstVertexProxy(m, i);
 }
