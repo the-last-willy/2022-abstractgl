@@ -1,9 +1,9 @@
 #pragma once
 
+#include "face_count.hpp"
 #include "face.hpp"
 #include "mesh.hpp"
 #include "topology.hpp"
-#include "vertex_count.hpp"
 
 namespace agl::engine {
 
@@ -14,7 +14,7 @@ BoundingBox bounding_box(TriangleMesh& tm) {
     //     throw std::logic_error("Lacking implementation.");
     // }
     auto bb = bounding_box(position(incident_vertex(f0, 0)));
-    for(uint32_t i = 0; i < vertex_count(tm); ++i) {
+    for(uint32_t i = 0; i < face_count(tm); ++i) {
         auto&& f = face(tm, i);
         // if(is_valid(f)) {
             for(uint32_t j = 0; j < incident_vertex_count(f); ++j) {
