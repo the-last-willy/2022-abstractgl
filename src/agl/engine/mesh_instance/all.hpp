@@ -5,4 +5,5 @@
 #include "mesh.hpp"
 #include "primitive.hpp"
 #include "primitives.hpp"
+#include "uniform.hpp"
 #include "upload_to.hpp"
