@@ -14,16 +14,17 @@
 namespace agl::format::wavefront {
 
 inline
-agl::engine::TriangleMesh load_geometry(
+void load_geometry(
+    Content& c,
     const tinyobj::ObjReader& obj)
 {
-    auto m = agl::engine::TriangleMesh();
-
     auto& attrib = obj.GetAttrib();
     auto& shapes = obj.GetShapes();
 
     // Loop over shapes
     for (size_t s = 0; s < shapes.size(); s++) {
+        auto m = agl::engine::TriangleMesh();
+
         // Loop over faces(polygon)
         size_t index_offset = 0;
         for (size_t f = 0; f < shapes[s].mesh.num_face_vertices.size(); f++) {
@@ -65,41 +66,41 @@ agl::engine::TriangleMesh load_geometry(
             // per-face material
             // shapes[s].mesh.material_ids[f];
         }
+        c.tmeshes.push_back(
+            std::make_shared<agl::engine::TriangleMesh>(std::move(m)));
     }
-
-    return m;
 }
 
-inline
-agl::engine::TriangleMesh load_geometry(
-    const std::filesystem::path& file_path)
-{
-    tinyobj::ObjReaderConfig reader_config;
+// inline
+// agl::engine::TriangleMesh load_geometry(
+//     const std::filesystem::path& file_path)
+// {
+//     tinyobj::ObjReaderConfig reader_config;
 
-    tinyobj::ObjReader reader;
+//     tinyobj::ObjReader reader;
 
-    if (!reader.ParseFromFile(file_path.string(), reader_config)) {
-        if (!reader.Error().empty()) {
-            std::cerr << "TinyObjReader: " << reader.Error();
-        }
-        throw std::runtime_error("TinyObjReader: Failed.");
-    }
+//     if (!reader.ParseFromFile(file_path.string(), reader_config)) {
+//         if (!reader.Error().empty()) {
+//             std::cerr << "TinyObjReader: " << reader.Error();
+//         }
+//         throw std::runtime_error("TinyObjReader: Failed.");
+//     }
 
-    if(!reader.Warning().empty()) {
-        std::cout << "TinyObjReader: " << reader.Warning();
-    }
+//     if(!reader.Warning().empty()) {
+//         std::cout << "TinyObjReader: " << reader.Warning();
+//     }
 
-    return load_geometry(reader);
-}
+//     return load_geometry(reader);
+// }
 
-inline
-void load_geometry(
-    Content& content,
-    const tinyobj::ObjReader& obj)
-{
-    auto g = load_geometry(obj);
-    content.tmeshes.push_back(
-        std::make_shared<agl::engine::TriangleMesh>(std::move(g)));
-}
+// inline
+// void load_geometry(
+//     Content& content,
+//     const tinyobj::ObjReader& obj)
+// {
+//     auto g = load_geometry(obj);
+//     content.tmeshes.push_back(
+//         std::make_shared<agl::engine::TriangleMesh>(std::move(g)));
+// }
 
 }
