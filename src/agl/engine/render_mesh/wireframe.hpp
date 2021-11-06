@@ -16,7 +16,7 @@ eng::Mesh wireframe(const TriangleMesh& tm) {
         agl::engine::accessor(std::span(geometry(tm).vertex_positions)));
     auto& p = *(m.primitives.emplace_back(std::make_shared<eng::Primitive>()));
     {
-        p.attributes["v"] = positions;
+        p.attributes["position"] = positions;
         p.draw_mode = agl::DrawMode::lines;
         p.draw_type = agl::DrawType::unsigned_int;
     }
