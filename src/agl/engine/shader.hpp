@@ -2,8 +2,6 @@
 
 #include "agl/standard/all.hpp"
 
-#include "local/all.hpp"
-
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -17,7 +15,7 @@ namespace eng {
 
 struct ShaderCompiler {
     std::string root = "./";
-    std::string log_folder = local::log_folder;
+    std::string log_folder;
 
     auto read_file(const std::string& filepath) const {
         auto fullpath = root + filepath;
@@ -67,7 +65,7 @@ struct ShaderCompiler {
                 throw std::runtime_error("Failed to compile shader.");
             }
         } else {
-            throw std::runtime_error("Failed to create: " + local::log_folder + "log_" + filepath);
+            throw std::runtime_error("Failed to create: " + log_folder + "log_" + filepath);
         }
 
         return shader;
