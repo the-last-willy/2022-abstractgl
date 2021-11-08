@@ -50,9 +50,11 @@ void load_materials(
             }
         }
         { // Ks/map_Ks.
-            // eng_material.textures["map_Ks"]
-            // = std::make_shared<eng::Texture>(
-            //     load_texture((mtl_path.string() + material.specular_texname).c_str(), 4));
+            if(not empty(material.emissive_texname)) {
+                eng_material.textures["map_Ks"]
+                = std::make_shared<eng::Texture>(
+                    load_texture((mtl_path.string() + material.specular_texname).c_str(), 4));
+            }
             // eng_material.uniforms["Ks"]
             // = new eng::Uniform<agl::Vec3>(agl::vec3(
             //     material.specular[0],
