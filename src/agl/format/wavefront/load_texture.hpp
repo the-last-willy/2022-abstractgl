@@ -5,11 +5,13 @@
 #include <stb_image.h>
 #include <stb_image_resize.h>
 
+#include <iostream>
+
 namespace agl::format::wavefront {
 
 inline
 auto load_texture(std::string filepath, int) {
-
+    std::cout << "Loading \"" << filepath << "\"." << std::endl;
     int w, h, n;
     unsigned char *data = stbi_load(filepath.c_str(), &w, &h, &n, 0);
     if(data == NULL) {

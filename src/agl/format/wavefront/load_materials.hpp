@@ -50,7 +50,7 @@ void load_materials(
             }
         }
         { // Ks/map_Ks.
-            if(not empty(material.emissive_texname)) {
+            if(not empty(material.specular_texname)) {
                 eng_material.textures["map_Ks"]
                 = std::make_shared<eng::Texture>(
                     load_texture((mtl_path.string() + material.specular_texname).c_str(), 4));
