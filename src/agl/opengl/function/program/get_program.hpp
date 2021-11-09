@@ -54,6 +54,13 @@ GLint active_uniform_max_length(
 }
 
 inline
+GLint info_log_length(Program p) {
+    GLint i;
+    get(p, ProgramParameter(GL_INFO_LOG_LENGTH), &i);
+    return i;
+}
+
+inline
 GLboolean link_status(
     Program p)
 {

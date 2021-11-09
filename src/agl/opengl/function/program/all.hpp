@@ -9,6 +9,7 @@
 #include "get_active_uniform.hpp"
 #include "get_program.hpp"
 #include "get_uniform_location.hpp"
+#include "info_log.hpp"
 #include "link.hpp"
 #include "program_uniform_matrix.hpp"
 #include "program_uniform_v.hpp"
