@@ -7,6 +7,7 @@
 #include "render_pass/all.hpp"
 #include "scene/all.hpp"
 #include "triangle_mesh/all.hpp"
+#include "uniform_map/all.hpp"
 #include "accessor.hpp"
 #include "animation.hpp"
 #include "buffer.hpp"
