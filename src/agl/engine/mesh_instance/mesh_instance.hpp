@@ -15,5 +15,17 @@ struct MeshInstance {
     bool enabled = true;
 };
 
+inline
+MeshInstance instance(std::shared_ptr<const eng::Mesh> m) {
+    auto mi = MeshInstance();
+    mi.mesh = std::move(m);
+    return mi;
+}
+
+inline
+MeshInstance instance(eng::Mesh&& m) {
+    return instance(std::make_shared<const eng::Mesh>(std::move(m)));
+}
+
 }
 
