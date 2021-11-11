@@ -32,4 +32,13 @@ struct Vec {
     }
 };
 
+template<typename T, std::size_t N> constexpr
+auto vec(T t) {
+    auto v = Vec<T, N>();
+    for(auto& vi : v.elements) {
+        vi = t;
+    }
+    return v;
+}
+
 }
