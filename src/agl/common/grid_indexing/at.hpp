@@ -6,11 +6,18 @@
 namespace agl::common {
 
 auto at(
+    const GridIndexing&,
+    std::size_t i)
+{
+    return i;
+}
+
+auto at(
     const GridIndexing& gi,
     std::size_t i,
     std::size_t j)
 {
-    return i * size(gi, 0) + j;
+    return i * size(gi, 1) + j;
 }
 
 auto at(
@@ -19,7 +26,7 @@ auto at(
     std::size_t j,
     std::size_t k)
 {
-    return i * size(gi, 0) * size(gi, 1) + j * size(gi, 0) + k;
+    return i * size(gi, 1) * size(gi, 2) + j * size(gi, 2) + k;
 }
 
 }
