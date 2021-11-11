@@ -6,4 +6,5 @@
 #include "length.hpp"
 #include "lower_bound.hpp"
 #include "midpoint.hpp"
+#include "union_bounds.hpp"
 #include "upper_bound.hpp"
