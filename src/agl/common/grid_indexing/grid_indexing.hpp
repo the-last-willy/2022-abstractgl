@@ -1,5 +1,6 @@
 #pragma once
 
+#include <ranges>
 #include <vector>
 
 namespace agl::common {
@@ -24,8 +25,25 @@ public:
     }
 };
 
+inline
 auto grid_indexing(std::initializer_list<std::size_t> il) {
     return GridIndexing(begin(il), end(il));
 }
+
+inline
+auto grid_indexing(const std::ranges::range auto& r) {
+    return GridIndexing(begin(r), end(r));
+}
+
+inline
+auto grid_indexing(std::size_t i) {
+    return grid_indexing({i});
+}
+
+inline
+auto grid_indexing(std::size_t i, std::size_t j) {
+    return grid_indexing({i, j});
+}
+
 
 }
