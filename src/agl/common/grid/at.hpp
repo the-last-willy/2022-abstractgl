@@ -11,6 +11,22 @@ namespace agl::common {
 template<typename... G>
 auto& at(
     const Grid<G...>& g,
+    std::size_t i)
+{
+    return g.at(at(indexing(g), i));
+}
+
+template<typename... G>
+auto& at(
+    Grid<G...>& g,
+    std::size_t i)
+{
+    return g.at(at(indexing(g), i));
+}
+
+template<typename... G>
+auto& at(
+    const Grid<G...>& g,
     std::size_t i,
     std::size_t j)
 {
