@@ -14,7 +14,7 @@ FP cos(FP fp) {
 
 template<typename Type, std::size_t Size> constexpr
 Vec<Type, Size> cos(const Vec<Type, Size>& v) {
-    auto c = Vec<Type, Size>();
+    auto c = v;
     for(auto& e : c.elements) {
         e = cos(e);
     }
