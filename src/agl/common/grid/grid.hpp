@@ -35,6 +35,22 @@ public:
         return elements[i];
     }
 
+    auto begin() const {
+        return std::begin(elements);
+    }
+
+    auto begin() {
+        return std::begin(elements);
+    }
+
+    auto end() const {
+        return std::end(elements);
+    }
+
+    auto end() {
+        return std::end(elements);
+    }
+
     auto& indexing() const noexcept {
         return indexing_;
     }
