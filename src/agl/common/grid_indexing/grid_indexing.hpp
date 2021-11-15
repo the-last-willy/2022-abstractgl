@@ -45,5 +45,9 @@ auto grid_indexing(std::size_t i, std::size_t j) {
     return grid_indexing({i, j});
 }
 
+inline
+auto grid_indexing(std::size_t i, std::size_t j, std::size_t k) {
+    return grid_indexing({i, j, k});
+}
 
 }

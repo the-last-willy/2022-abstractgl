@@ -56,4 +56,19 @@ public:
     }
 };
 
+template<typename T>
+auto grid(std::size_t s0) {
+    return Grid<T>(grid_indexing(s0));
+}
+
+template<typename T>
+auto grid(std::size_t s0, std::size_t s1) {
+    return Grid<T>(grid_indexing(s0, s1));
+}
+
+template<typename T>
+auto grid(std::size_t s0, std::size_t s1, std::size_t s2) {
+    return Grid<T>(grid_indexing(s0, s1, s2));
+}
+
 }
