@@ -18,8 +18,13 @@ template<std::size_t N>
 Interval(Vec<float, N>, Vec<float, N>) -> Interval<N>;
 
 template<typename T>
+auto interval(T t0, T t1) {
+    return Interval(t0, t1);
+}
+
+template<typename T>
 auto interval(T t) {
-    return Interval(t, t);
+    return interval(t, t);
 }
 
 }
