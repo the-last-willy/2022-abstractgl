@@ -14,11 +14,14 @@ inline
 auto triangle_mesh(const agl::engine::TriangleMesh& tm, const std::vector<std::shared_ptr<eng::Material>>& materials) {
     auto m = eng::Mesh();
     auto indices = std::vector<uint32_t>();
+    auto colors = std::make_shared<eng::Accessor>(
+        accessor(std::span(geometry(tm).vertex_colors)));
     auto positions = std::make_shared<eng::Accessor>(
         accessor(std::span(geometry(tm).vertex_positions)));
     for(uint32_t f = 0; f < face_count(tm);) {
         auto& p = *m.primitives.emplace_back(std::make_shared<eng::Primitive>());
         {
+            p.attributes["color"] = colors;
             p.attributes["v"] = positions;
             p.draw_mode = agl::DrawMode::triangles;
             p.draw_type = agl::DrawType::unsigned_int;
