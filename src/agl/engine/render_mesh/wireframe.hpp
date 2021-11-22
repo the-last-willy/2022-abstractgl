@@ -26,7 +26,6 @@ eng::Mesh wireframe(const TriangleMesh& tm) {
             auto f = face(tm, fi);
             for(uint32_t i = 0; i < incident_vertex_count(f); ++i) {
                 indices.push_back(index(incident_vertex(f, i)));
-                indices.push_back(index(incident_vertex(f, i + 1)));
             }
         }
         p.indices = std::make_shared<eng::Accessor>(
