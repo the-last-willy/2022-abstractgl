@@ -6,11 +6,13 @@
 namespace agl::engine {
 
 inline
-bool are_intersecting(const BoundingBox& bb0, const BoundingBox bb1) {
+bool are_intersecting(const BoundingBox& bb0, const BoundingBox& bb1) {
     { // Test bb1 in bb0 space.
         auto bb1_to_bb0 = mat4(bb0.transform) * inverse(mat4(bb1.transform));
-        auto counts = std::array<int, 6>();
+        auto counts = std::array<int, 6>{};
+        // std::cout << "corners" << std::endl;
         for(auto c : corners(bb1)) {
+            // std::cout << c << std::endl;
             // Homogeneous space.
             auto h = bb1_to_bb0 * vec4(c, 1.f);
             // Normalized homogeneous space.
@@ -31,7 +33,7 @@ bool are_intersecting(const BoundingBox& bb0, const BoundingBox bb1) {
     }
     { // Test bb0 in bb1 space.
         auto bb0_to_bb1 = mat4(bb1.transform) * inverse(mat4(bb0.transform));
-        auto counts = std::array<int, 6>();
+        auto counts = std::array<int, 6>{};
         for(auto c : corners(bb0)) {
             // Homogeneous space.
             auto h = bb0_to_bb1 * vec4(c, 1.f);
