@@ -9,7 +9,7 @@ namespace agl::engine {
 
 struct BoundingBox {
     // Axis aligned bounding box.
-    common::Interval<3> aabb;
+    common::Interval<agl::Vec3> aabb;
 
     eng::Transform transform = agl::mat4(agl::identity);
 };

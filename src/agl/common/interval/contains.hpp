@@ -6,7 +6,7 @@
 
 namespace agl::common {
 
-template<auto... I> constexpr
+template<typename... I> constexpr
 bool contains(Interval<I...>& i, auto&& arg) {
     auto& lb = lower_bound(i);
     auto& ub = upper_bound(i);

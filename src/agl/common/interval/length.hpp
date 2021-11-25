@@ -6,7 +6,7 @@
 
 namespace agl::common {
 
-template<auto... I> constexpr
+template<typename... I> constexpr
 auto length(const Interval<I...>& i) {
     return upper_bound(i) - lower_bound(i);
 }
