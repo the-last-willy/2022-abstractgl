@@ -21,6 +21,7 @@ void draw_elements(
         static_cast<GLenum>(dm),
         static_cast<GLsizei>(c),
         static_cast<GLenum>(dt),
+        // Get rid of reinterpret_cast somehow.
         reinterpret_cast<const void*>(static_cast<GLintptr>(o)));
 }
 
