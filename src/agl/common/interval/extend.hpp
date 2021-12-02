@@ -4,6 +4,8 @@
 #include "lower_bound.hpp"
 #include "upper_bound.hpp"
 
+#include <concepts>
+
 namespace agl::common {
 
 template<typename... I> constexpr
@@ -16,6 +18,17 @@ void extend(Interval<I...>& i, auto&& arg) {
         } else if(arg[j] > ub[j]) {
             ub[j] = arg[j];
         }
+    }
+}
+
+template<typename... I> constexpr
+void extend(Interval<I...>& i, std::floating_point auto arg) {
+    auto& lb = lower_bound(i);
+    auto& ub = upper_bound(i);
+    if(arg < lb) {
+        lb = arg;
+    } else if(arg > ub) {
+        ub = arg;
     }
 }
 
