@@ -1,5 +1,6 @@
 #pragma once
 
+#include "clamp.hpp"
 #include "contains.hpp"
 #include "extend.hpp"
 #include "interval.hpp"
