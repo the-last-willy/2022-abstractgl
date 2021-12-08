@@ -2,6 +2,7 @@
 
 #include "clamp.hpp"
 #include "contains.hpp"
+#include "corners.hpp"
 #include "extend.hpp"
 #include "interval.hpp"
 #include "length.hpp"
