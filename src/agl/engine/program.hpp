@@ -32,11 +32,10 @@ void load(
 
 inline
 void load(
-    agl::Program& p,
+    const agl::Program& p,
     const ShaderCompiler& sc,
     const std::map<agl::ShaderType, std::string> shader_filepaths)
 {
-    p = agl::create(agl::program_tag);
     for(auto& [type, filepath] : shader_filepaths) {
         auto s = sc(filepath, type);
         agl::attach(p, s);
@@ -51,6 +50,7 @@ void load(
     const ShaderCompiler& sc,
     const std::map<agl::ShaderType, std::string> shader_filepaths)
 {
+    p.program = agl::create(agl::program_tag);
     load(p.program, sc, shader_filepaths);
 }
 
