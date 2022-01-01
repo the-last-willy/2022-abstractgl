@@ -35,11 +35,4 @@ struct Buffer {
     }
 };
 
-inline
-auto size(const Buffer& b) {
-    auto s = GLsizeiptr();
-    glGetNamedBufferParameteri64v(b, GL_BUFFER_SIZE, &s);
-    return s;
-}
-
 }

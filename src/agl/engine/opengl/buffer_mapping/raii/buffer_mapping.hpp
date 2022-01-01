@@ -6,18 +6,26 @@
 
 namespace agl::engine::opengl {
 
-// Invariants:
-// - RAII.
-// - (TODO) Tie 'buffer' and 'data' ptr lifetimes smh.
+/**
+ * Interface:
+ * - 'BufferMapping's are returned by the '*MapBuffer*' OpenGL functions; as 
+ * such, they should have pointer semantics.
+ * Invariant:
+ * - RAII.
+ */
 struct BufferMapping {
-    Buffer* buffer;
-    std::byte* mapping = nullptr;
+    // Has to be first in case of reinterpret_cast (type aliasing or whatever) ?
+    void* mapping = nullptr;
+    const Buffer* buffer;
 
-    BufferMapping() = default;
+    BufferMapping(const Buffer* b, void* ptr)
+        : mapping(ptr)
+        , buffer(b)
+    {}
 
     BufferMapping(const BufferMapping&) = delete;
 
-    BufferMapping(BufferMapping&& bm) {
+    BufferMapping(BufferMapping&& bm) noexcept {
         buffer = bm.buffer;
         mapping = bm.mapping;
         bm.mapping = nullptr;
@@ -31,7 +39,7 @@ struct BufferMapping {
 
     BufferMapping& operator=(const BufferMapping&) = delete;
 
-    BufferMapping& operator=(BufferMapping&& bm) {
+    BufferMapping& operator=(BufferMapping&& bm) noexcept {
         if(mapping) {
             glUnmapNamedBuffer(*buffer);
         }
@@ -40,21 +48,10 @@ struct BufferMapping {
         bm.mapping = GL_NONE;
         return *this;
     }
+
+    operator void* () const noexcept {
+        return mapping;
+    }
 };
-
-inline
-auto mapping(Buffer& b, GLintptr offset, GLsizeiptr length, GLbitfield access) {
-    auto bm = BufferMapping();
-    bm.buffer = &b;
-    bm.mapping = static_cast<std::byte*>(
-        glMapNamedBufferRange(
-            b, offset, length, access));
-    return bm;
-}
-
-inline
-auto mapping(Buffer& b, GLbitfield access) {
-    return mapping(b, 0, size(b), access);
-}
 
 }
