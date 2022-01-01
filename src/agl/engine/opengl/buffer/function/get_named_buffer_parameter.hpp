@@ -13,7 +13,7 @@ GLint GetNamedBufferParameter(
     GLenum pname)
 {
     GLint params;
-    glGetNamedBuffer(b, pname, &params);
+    glGetNamedBufferParameteriv(b, pname, &params);
     return params;
 }
 

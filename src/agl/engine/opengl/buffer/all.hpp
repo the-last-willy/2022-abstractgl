@@ -1,4 +1,4 @@
 #pragma once
 
+#include "function/all.hpp"
 #include "buffer.hpp"
-#include "named_buffer_storage.hpp"
