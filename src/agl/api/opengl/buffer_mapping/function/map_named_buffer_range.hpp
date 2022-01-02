@@ -2,7 +2,7 @@
 
 #include "raii/all.hpp"
 
-namespace agl::engine::opengl {
+namespace agl::opengl {
 
 inline
 BufferMapping MapNamedBufferRange(

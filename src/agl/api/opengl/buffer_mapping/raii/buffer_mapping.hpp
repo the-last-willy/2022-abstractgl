@@ -4,7 +4,7 @@
 
 #include <cstddef>
 
-namespace agl::engine::opengl {
+namespace agl::opengl {
 
 /**
  * Interface:

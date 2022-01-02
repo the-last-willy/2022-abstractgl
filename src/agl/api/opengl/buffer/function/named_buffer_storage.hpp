@@ -4,7 +4,7 @@
 
 #include <span>
 
-namespace agl::engine::opengl {
+namespace agl::opengl {
 
 template<typename T>
 void NamedBufferStorage(

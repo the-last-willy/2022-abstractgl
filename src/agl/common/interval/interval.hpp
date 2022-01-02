@@ -20,4 +20,11 @@ auto interval(T t) {
     return interval(t, t);
 }
 
+template<typename T, typename... I>
+auto interval(const Interval<I...>& i) {
+    return interval(
+        T(lower_bound(i)),
+        T(upper_bound(i)));
+}
+
 }

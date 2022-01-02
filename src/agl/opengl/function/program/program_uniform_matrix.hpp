@@ -52,5 +52,10 @@ void uniform(
         element_data(m));
 }
 
+template<typename T>
+void uniform(Program p, GLint i, const T& t) {
+    uniform(p, UniformIndex(i), t);
+}
+
 }
 

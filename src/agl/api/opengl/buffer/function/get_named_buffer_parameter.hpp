@@ -2,7 +2,7 @@
 
 #include "buffer.hpp"
 
-namespace agl::engine::opengl {
+namespace agl::opengl {
 
 // The return type if obviously inadequate.
 // Might be multiple values ?

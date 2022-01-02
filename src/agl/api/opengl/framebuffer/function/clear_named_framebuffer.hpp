@@ -1,6 +1,6 @@
 #pragma once
 
-namespace agl::engine::opengl {
+namespace agl::opengl {
 
 // How to handle default framebuffer (= 0) ?
 inline

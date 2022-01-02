@@ -1,6 +1,6 @@
 // #pragma once
 
-// namespace agl::engine::opengl {
+// namespace agl::opengl {
 
 // // - RAII.
 // struct Shader {
