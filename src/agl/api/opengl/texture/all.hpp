@@ -10,7 +10,7 @@ struct Texture {
     Texture() {
         static_assert(
             false,
-            "An OpenGL texture cannot be default constructed;"
+            "An OpenGL texture cannot be default constructed; "
             "a texture target has to be specified.");
     }
 
