@@ -9,7 +9,7 @@ BufferMapping MapNamedBuffer(
     const Buffer& b,
     GLbitfield access)
 {
-    return BufferMapping(&b, glMapNamedBuffer(b, access));
+    return BufferMapping(b, glMapNamedBuffer(b, access));
 }
 
 }

@@ -18,9 +18,9 @@ struct BufferMapping {
     void* mapping = nullptr;
     const Buffer* buffer;
 
-    BufferMapping(const Buffer* b, void* ptr)
-        : mapping(ptr)
-        , buffer(b)
+    BufferMapping(const Buffer& b, void* ptr)
+        : mapping(&ptr)
+        , buffer(&b)
     {}
 
     BufferMapping(const BufferMapping&) = delete;

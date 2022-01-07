@@ -11,7 +11,7 @@ BufferMapping MapNamedBufferRange(
 	GLsizei length,
 	GLbitfield access) 
 {
-    return BufferMapping(&b, glMapNamedBufferRange(b, offset, length, access));
+    return BufferMapping(b, glMapNamedBufferRange(b, offset, length, access));
 }
 
 }
