@@ -2,8 +2,8 @@
 
 #include "buffer.hpp"
 
+#include <concepts>
 #include <initializer_list>
-#include <span>
 
 namespace agl::opengl {
 
@@ -21,37 +21,37 @@ void NamedBufferStorage(
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+// Standard library compatibility.
 
-// Might be better to use a concept encapsulating both init_list and span.
-// Only data, size and value_type are required.
-
-// 'std::initializer_list'.
+// Standard containers: array, span, vector, ...
+template<typename Container> requires
+requires(Container c) {
+    Container::value_type;
+    { data(c) } -> std::convertible_to<const Container::value_type*>;
+    { size(c) } -> std::integral;
+}
+void NamedBufferStorage(
+    const Buffer& b,
+    const Container& c,
+    GLenum flags = GL_NONE)
+{
+    glNamedBufferStorage(
+        b,
+        size(c) * sizeof(Container::value_type),
+        data(c),
+        flags);
+}
 
 template<typename T>
 void NamedBufferStorage(
     const Buffer& b,
-    std::initializer_list<T> il,
+    const std::initializer_list<T>& il,
     GLenum flags = GL_NONE)
 {
     glNamedBufferStorage(
         b,
         size(il) * sizeof(T),
         data(il),
-        flags);
-}
-
-// 'std::span'.
-
-template<typename T>
-void NamedBufferStorage(
-    const Buffer& b,
-    std::span<T> s,
-    GLenum flags = GL_NONE)
-{
-    glNamedBufferStorage(
-        b,
-        size(s) * sizeof(T),
-        data(s),
         flags);
 }
 
