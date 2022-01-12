@@ -2,6 +2,7 @@
 
 #include "buffer_mapping/all.hpp"
 #include "buffer/all.hpp"
+#include "capability/all.hpp"
 #include "draw/all.hpp"
 #include "framebuffer/all.hpp"
 #include "program/all.hpp"

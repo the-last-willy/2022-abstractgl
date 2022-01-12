@@ -9,12 +9,26 @@ namespace agl::opengl {
 
 inline
 void NamedBufferStorage(
-    const Buffer& b,
+    const Buffer& buffer,
     GLsizei size,
+    const GLvoid* data,
     GLenum flags = GL_NONE)
 {
     glNamedBufferStorage(
-        b,
+        buffer,
+        size,
+        data,
+        flags);
+}
+
+inline
+void NamedBufferStorage(
+    const Buffer& buffer,
+    GLsizei size,
+    GLenum flags = GL_NONE)
+{
+    NamedBufferStorage(
+        buffer,
         size,
         NULL,
         flags);
