@@ -1,6 +1,6 @@
 #pragma once
 
-#include "optional.hpp"
+#include "optional_attribute_location.hpp"
 
 namespace agl::opengl {
 

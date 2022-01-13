@@ -1,7 +1,7 @@
 #pragma once
 
 #include "raii/all.hpp"
-#include "type/attribute_location/optional.hpp"
+#include "type/optional_attribute_location.hpp"
 
 namespace agl::opengl {
 
