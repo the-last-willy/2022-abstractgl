@@ -25,6 +25,20 @@ inline
 void ProgramUniform4fv(
     const Program& program,
     OptUniformLoc location,
+    GLsizei count,
+    const GLfloat* value)
+{
+    glProgramUniform4fv(
+        program,
+        location,
+        count,
+        value);
+}
+
+inline
+void ProgramUniform4fv(
+    const Program& program,
+    OptUniformLoc location,
     std::span<const GLfloat, 4> value)
 {
     glProgramUniform4fv(
