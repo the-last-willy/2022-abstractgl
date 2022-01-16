@@ -1,6 +1,7 @@
 #pragma once
 
 #include "camera.hpp"
+#include "clip_to_view.hpp"
 #include "clip_to_world.hpp"
 #include "bounding_box.hpp"
 #include "eye_to_clip.hpp"
