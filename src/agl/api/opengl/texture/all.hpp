@@ -1,5 +1,7 @@
 #pragma once
 
+#include "type/all.hpp"
+
 namespace agl::opengl {
 
 // - RAII.
