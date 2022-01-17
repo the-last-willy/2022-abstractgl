@@ -6,6 +6,7 @@
 #include "draw/all.hpp"
 #include "framebuffer/all.hpp"
 #include "program/all.hpp"
+#include "query/all.hpp"
 #include "sampler/all.hpp"
 #include "shader/all.hpp"
 #include "texture/all.hpp"
