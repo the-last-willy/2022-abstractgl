@@ -5,8 +5,8 @@
 namespace agl::opengl {
 
 inline
-void EndQuery(const Query& id) {
-    glEndQuery(id);
+void EndQuery(GLenum target) {
+    glEndQuery(target);
 }
 
 }
