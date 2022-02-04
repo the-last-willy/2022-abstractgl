@@ -1,3 +1,31 @@
+# Modules
+
+## API
+
+- API/Dx12
+- [API/OpenGL](https://github.com/the-last-willy/abstractgl-api-opengl)
+- API/Standard
+- API/Vulkan
+
+## Core
+
+## Engine
+
+- Engine
+
+## Language
+
+- Lang/GLSL
+- Lang/HLSL
+
+## Format
+
+- Format/Filmbox (.fbx)
+- Format/glTF (.gtlf)
+- Format/Wavefront (.mtl, .obj)
+
+# //////////////////////////////////////////////////////////
+
 *Nothing is anywhere close to be in a remotely finished state. But it's going forward.*
 
 AbstractGL is a collection of libraries for computer graphics (supporting only OpenGL at the moment).
