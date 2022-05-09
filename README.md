@@ -1,31 +1,3 @@
-# Modules
-
-## API
-
-- API/Dx12
-- [API/OpenGL](https://github.com/the-last-willy/abstractgl-api-opengl)
-- API/Standard
-- API/Vulkan
-
-## Core
-
-## Engine
-
-- Engine
-
-## Language
-
-- Lang/GLSL
-- Lang/HLSL
-
-## Format
-
-- Format/Filmbox (.fbx)
-- Format/glTF (.gtlf)
-- Format/Wavefront (.mtl, .obj)
-
-# //////////////////////////////////////////////////////////
-
 *Nothing is anywhere close to be in a remotely finished state. But it's going forward.*
 
 AbstractGL is a collection of libraries for computer graphics (supporting only OpenGL at the moment).
@@ -205,6 +177,38 @@ Computation of normals with Laplacian approximation:
 
 TODO: Add a video cuz you can't take a screenshot of an animation.
 
+# //////////////////////////////////////////////////////////
+
+*Currently tidying stuff up...*
+
+# Modules
+
+## API
+
+- API/Dx12
+- [API/OpenGL](https://github.com/the-last-willy/abstractgl-api-opengl)
+- API/Standard
+- API/Vulkan
+
+## Core
+
+## Engine
+
+- Engine
+
+## Language
+
+- Lang/GLSL
+- Lang/HLSL
+
+## Format
+
+- Format/Filmbox (.fbx)
+- Format/glTF (.gtlf)
+- Format/Wavefront (.mtl, .obj)
+
+
+
 ## Projects
 
-Another project of mine: [id3d](https://github.com/the-last-willy/id3d).
+Another project using this library: [id3d](https://github.com/the-last-willy/id3d).
