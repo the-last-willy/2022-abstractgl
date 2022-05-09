@@ -194,10 +194,10 @@ Sponza scene with Blinn-Phong lighting and omni directional lighting:
 PBR test scene:
 ![image](https://user-images.githubusercontent.com/84744335/134546239-ae93ddfa-c602-4a05-ad89-de2cb3a2f13c.png)
 
-Damaged Helmet with PBR pipeline (metallic/roughness, emissivity, normal mapping, ambient occlusion).
+Sponza scene with PBR pipeline:
 ![image](https://user-images.githubusercontent.com/84744335/134546119-9f0657eb-e93d-43c1-8912-9494c8bf6290.png)
 
-Sponza scene with PBR pipeline:
+Damaged Helmet with PBR pipeline (metallic/roughness, emissivity, normal mapping, ambient occlusion):
 ![image](https://user-images.githubusercontent.com/84744335/134546077-153f1510-33e1-4e7c-92be-184b5bd985c0.png)
 
 Computation of normals with Laplacian approximation:
