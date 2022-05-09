@@ -194,7 +194,7 @@ Sponza scene with Blinn-Phong lighting and omni directional lighting:
 PBR test scene:
 ![image](https://user-images.githubusercontent.com/84744335/134546239-ae93ddfa-c602-4a05-ad89-de2cb3a2f13c.png)
 
-Sponza scene with PBR pipeline:
+Sponza scene with PBR pipeline (not exactly working):
 ![image](https://user-images.githubusercontent.com/84744335/134546119-9f0657eb-e93d-43c1-8912-9494c8bf6290.png)
 
 Damaged Helmet with PBR pipeline (metallic/roughness, emissivity, normal mapping, ambient occlusion):
