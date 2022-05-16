@@ -161,21 +161,28 @@ You will need to add one yourself to your own project (see [glad](https://github
 ## Screenshots
 
 Sponza scene with Blinn-Phong lighting and omni directional lighting:
+
 ![image](https://user-images.githubusercontent.com/84744335/134546040-b61752c6-8218-4554-b255-b26bd9249f5d.png)
 
 PBR test scene:
+
 ![image](https://user-images.githubusercontent.com/84744335/134546239-ae93ddfa-c602-4a05-ad89-de2cb3a2f13c.png)
 
 Sponza scene with PBR pipeline (not exactly working):
+
 ![image](https://user-images.githubusercontent.com/84744335/134546119-9f0657eb-e93d-43c1-8912-9494c8bf6290.png)
 
 Damaged Helmet with PBR pipeline (metallic/roughness, emissivity, normal mapping, ambient occlusion):
+
 ![image](https://user-images.githubusercontent.com/84744335/134546077-153f1510-33e1-4e7c-92be-184b5bd985c0.png)
 
-Computation of normals with Laplacian approximation:
-![image](https://user-images.githubusercontent.com/84744335/134546328-603c2189-b8da-46e1-912c-5d2af42a5033.png)
+Animation:
 
-TODO: Add a video cuz you can't take a screenshot of an animation.
+![21_07_02](https://user-images.githubusercontent.com/84744335/168531437-b4e76375-7bf6-4efc-bb20-864399db48ad.gif)
+
+Mesh skinning:
+
+![21_07_02](https://user-images.githubusercontent.com/84744335/168531334-fd771e3d-ec53-44de-824b-cd2e9e858c15.gif)
 
 # //////////////////////////////////////////////////////////
 
